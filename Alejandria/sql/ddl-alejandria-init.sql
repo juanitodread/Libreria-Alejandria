@@ -26,10 +26,6 @@ create table Usuario(
 	unique (usuario)
 );
 
---Este insert es necesario aqui
-insert into Usuario(nombre, aPaterno, aMaterno, email, usuario, pass, respuestaSecreta, idMunicipio, idPreguntaSecreta, idUsuarioCreacion, idUsuarioActualizacion)
-values('alejandría', 'alejandría', 'alejandría', 'alejandría@gmail.com', 'masteradmin', md5('masteradmin@alejandría'), md5('admin'), 1, 1, 1, 1);
-
 --TABLA PAIS
 create sequence secIdPais
 increment by 1 minvalue 1 maxvalue 999999999 start 1;
@@ -113,79 +109,3 @@ create table PreguntaSecreta(
   constraint UK_PreguntaSecreta
 	unique (preguntaSecreta)
 );
-
-
-
-
-
-
-
-
-
---------------------------------------FK-------------------------------------------------------
---FK USUARIO
-alter table usuario
-add constraint FK_IdMunicipio
-foreign key (idMunicipio) references municipio(idMunicipio);
-
-alter table usuario
-add constraint FK_IdPreguntaSecreta
-foreign key (idPreguntaSecreta) references PreguntaSecreta(idPreguntaSecreta);
-
-alter table usuario
-add constraint FK_IdUsuarioCreacion
-foreign key (idUsuarioCreacion) references usuario(idUsuario);
-
-alter table usuario
-add constraint FK_IdUsuarioActualizacion
-foreign key (idUsuarioActualizacion) references usuario(idUsuario);
-
-
---FK PAIS
-alter table pais
-add constraint FK_IdUsuarioCreacion
-foreign key (idUsuarioCreacion) references usuario(idUsuario);
-
-alter table pais
-add constraint FK_IdUsuarioActualizacion
-foreign key (idUsuarioActualizacion) references usuario(idUsuario);
-
-
---FK ESTADO
-alter table Estado
-add constraint FK_IDPAIS
-foreign key (idPais) references Pais;
-
-alter table Estado
-add constraint FK_IDUSUARIOCREACION
-foreign key (idUsuarioCreacion) references Usuario;
-
-alter table Estado
-add constraint FK_IDUSUARIOACTUALIZACION
-foreign key (idUsuarioActualizacion) references Usuario;
-
-
---FK MUNICIPIO
-alter table Municipio
-add constraint FK_IDESTADO
-foreign key (idEstado) references Estado;
-
-alter table Municipio
-add constraint FK_IDUSUARIOCREACION
-foreign key (idUsuarioCreacion) references Usuario;
-
-alter table Municipio
-add constraint FK_IDUSUARIOACTUALIZACION
-foreign key (idUsuarioActualizacion) references Usuario;
-
-
---FK PREGUNTA SECRETA
-alter table preguntaSecreta
-add constraint FK_IdUsuarioCreacion
-foreign key (idUsuarioCreacion) references usuario(idUsuario);
-
-alter table preguntaSecreta
-add constraint FK_IdUsuarioActualizacion
-foreign key (idUsuarioActualizacion) references usuario(idUsuario);
-
-
