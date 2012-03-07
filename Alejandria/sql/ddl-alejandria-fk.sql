@@ -63,3 +63,35 @@ foreign key (idUsuarioCreacion) references usuario(idUsuario);
 alter table preguntaSecreta
 add constraint FK_IdUsuarioActualizacion
 foreign key (idUsuarioActualizacion) references usuario(idUsuario);
+
+--FK FORMATOLIBRO
+alter table FormatoLibro
+add constraint FK_IDUSUARIOCREACION
+foreign key (idUsuarioCreacion) references Usuario;
+
+alter table FormatoLibro
+add constraint FK_IDUSUARIOACTUALIZACION
+foreign key (idUsuarioActualizacion) references Usuario;
+
+--FK BANCO
+alter table Banco
+add constraint FK_IDUSUARIOCREACION
+foreign key (idUsuarioCreacion) references Usuario;
+
+alter table Banco
+add constraint FK_IDUSUARIOACTUALIZACION
+foreign key (idUsuarioActualizacion) references Usuario;
+
+--FK EDITORIAL
+alter table Editorial
+add constraint FK_IDMUNICIPIO
+foreign key (idMunicipio) references Municipio;
+
+alter table Editorial
+add constraint FK_IDUSUARIOCREACION
+foreign key (idUsuarioCreacion) references Usuario;
+
+alter table Editorial
+add constraint FK_IDUSUARIOACTUALIZACION
+foreign key (idUsuarioActualizacion) references Usuario;
+

@@ -48,9 +48,8 @@ create table Pais(
 );
 
 
-/*
-*TABLA ESTADO
-*/
+
+--TABLA ESTADO
 create sequence secIdEstado
 increment by 1 minvalue 1 maxvalue 999999999 start 1;
 
@@ -70,9 +69,8 @@ create table Estado
 	constraint UK_ESTADOCODIGO 	unique(codigo)
 );
 
-/*
-*TABLA MUNICIPIO
-*/
+
+--TABLA MUNICIPIO
 create sequence secIdMunicipio
 increment by 1 minvalue 1 maxvalue 999999999 start 1;
 
@@ -108,4 +106,63 @@ create table PreguntaSecreta(
 	primary key(idPreguntaSecreta),
   constraint UK_PreguntaSecreta
 	unique (preguntaSecreta)
+);
+
+--TABLA FORMATOLIBRO
+create sequence secIdFormatoLibro
+increment by 1 minvalue 1 maxvalue 999999999 start 1;
+
+create table FormatoLibro
+(
+	idFormatoLibro		integer		default nextval('secIdEstado')	not null,
+	formatoLibro		varchar(100)					not null,
+	codigo			varchar(50)					not null,	
+	activo			boolean		default TRUE			not null,
+	fechaCreacion		timestamp	default current_timestamp	not null,
+	fechaActualizacion	timestamp	default current_timestamp	not null,
+	idUsuarioCreacion	integer						not null,
+	idUsuarioActualizacion	integer						not null,
+	constraint PK_FORMATOLIBRO 	primary key (idFormatoLibro),	
+	constraint UK_FORMATOLIBRO 	unique(formatoLibro),
+	constraint UK_FORMATOLIBROCODIGO unique(codigo)
+);
+
+
+--TABLA BANCO
+create sequence secIdBanco
+increment by 1 minvalue 1 maxvalue 999999999 start 1;
+
+create table Banco
+(
+	idBanco			integer		default nextval('secIdEstado')	not null,
+	banco			varchar(100)					not null,
+	codigo			varchar(50)					not null,	
+	activo			boolean		default TRUE			not null,
+	fechaCreacion		timestamp	default current_timestamp	not null,
+	fechaActualizacion	timestamp	default current_timestamp	not null,
+	idUsuarioCreacion	integer						not null,
+	idUsuarioActualizacion	integer						not null,
+	constraint PK_IDBANCO 	primary key (idBanco),	
+	constraint UK_BANCO 	unique(banco),
+	constraint UK_BANCOCODIGO unique(codigo)
+);
+
+--TABLA EDITORIAL
+create sequence secIdEditorial
+increment by 1 minvalue 1 maxvalue 999999999 start 1;
+
+create table Editorial
+(
+	idEditorial		integer		default nextval('secIdEstado')	not null,
+	editorial		varchar(100)					not null,
+	codigo			varchar(50)					not null,	
+	idMunicipio		integer						not null,
+	activo			boolean		default TRUE			not null,
+	fechaCreacion		timestamp	default current_timestamp	not null,
+	fechaActualizacion	timestamp	default current_timestamp	not null,
+	idUsuarioCreacion	integer						not null,
+	idUsuarioActualizacion	integer						not null,
+	constraint PK_IDEDITORIAL 	primary key (idEditorial),	
+	constraint UK_EDITORIAL 	unique(editorial),
+	constraint UK_EDITORIALCODIGO	unique(codigo)
 );
