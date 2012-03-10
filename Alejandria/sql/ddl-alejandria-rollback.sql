@@ -1,3 +1,21 @@
+/*
+*TABLA EDITORIAL
+*/
+drop table Editorial;
+drop sequence secIdEditorial;
+
+/*
+*TABLA BANCO
+*/
+drop table Banco;
+drop sequence secIdBanco;
+
+/*
+*TABLA FORMATOLIBRO
+*/
+drop table FormatoLibro;
+drop sequence secIdFormatoLibro;
+
 ﻿/*
 *TABLA PREGUNTASECRETA
 */
@@ -27,21 +45,3 @@ drop sequence sedIdPais;
 */
 drop table Usuario;
 drop sequence secIdUsuario;
-
-/*
-*TABLA FORMATOLIBRO
-*/
-drop table FormatoLibro;
-drop sequence secIdFormatoLibro;
-
-/*
-*TABLA BANCO
-*/
-drop table Banco;
-drop sequence secIdBanco;
-
-/*
-*TABLA EDITORIAL
-*/
-drop table Editorial;
-drop sequence secIdEditorial;
