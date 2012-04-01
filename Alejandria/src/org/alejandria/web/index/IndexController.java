@@ -1,37 +1,19 @@
 package org.alejandria.web.index;
 
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Created by IntelliJ IDEA.
- * User: Jvan
+ * User: @juanitodread
  * Date: 3/31/12
  * Time: 8:47 PM
- * To change this template use File | Settings | File Templates.
  */
-public class IndexController implements Controller{
 
-    private String successView;
+@Controller
+public class IndexController{
 
-    public IndexController() {
-    }
-
-    @Override
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ModelAndView mv = new ModelAndView(successView);
-        
-        return mv;
-    }
-
-    public String getSuccessView() {
-        return successView;
-    }
-
-    public void setSuccessView(String successView) {
-        this.successView = successView;
+    @RequestMapping("/index.run")
+    public String getIndexView(){
+        return "org/alejandria/web/index/index";
     }
 }
