@@ -1,5 +1,6 @@
 package org.alejandria.web.index;
 
+import org.alejandria.model.entity.Usuario;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
