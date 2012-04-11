@@ -12,7 +12,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contexConfigLocation</param-name>
-            <param-value>/WEB-INF/spring-config.xml</param-value>
+            <param-value>/WEB-INF/alejandriamvc-servlet.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -30,4 +30,14 @@
             30
         </session-timeout>
     </session-config>
+
+    <!--<filter>
+        <filter-name>sitemesh</filter-name>
+        <filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>sitemesh</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping> -->
 </web-app>
