@@ -32,7 +32,7 @@ public class Estado implements Serializable, Comparable<Estado> {
     @JoinColumn(name = "idUsuarioCreacion", nullable = false)
     private Usuario usuarioCreacion;
     @ManyToOne
-    @JoinColumn(name = "idUsuarioCreacion", nullable = false)
+    @JoinColumn(name = "idUsuarioActualizacion", nullable = false)
     private Usuario usuarioActualizacion;
     @ManyToOne
     @JoinColumn(name = "idPais", nullable = false)

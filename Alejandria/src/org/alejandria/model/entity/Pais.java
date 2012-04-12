@@ -33,7 +33,7 @@ public class Pais implements Serializable, Comparable<Pais>{
     @JoinColumn(name = "idUsuarioCreacion", nullable = false)
     private Usuario usuarioCreacion;
     @ManyToOne
-    @JoinColumn(name = "idUsuarioCreacion", nullable = false)
+    @JoinColumn(name = "idUsuarioActualizacion", nullable = false)
     private Usuario usuarioActualizacion;
     
     public Pais(){

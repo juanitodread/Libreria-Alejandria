@@ -40,7 +40,9 @@ public class Usuario implements Serializable, Comparable<Usuario> {
     @ManyToOne
     @JoinColumn(name = "idMunicipio", nullable = false)
     private Municipio municipio;
-    //private PreguntaSecreta preguntaSecreta;
+    @OneToOne
+    @JoinColumn(name = "idPreguntaSecreta", nullable = false)
+    private PreguntaSecreta preguntaSecreta;
     @Column(name = "activo", insertable = false)
     private Boolean activo;
     @Column(name = "fechaCreacion", insertable = false, updatable = false)
@@ -51,7 +53,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
     @JoinColumn(name = "idUsuarioCreacion", nullable = false)
     private Usuario usuarioCreacion;
     @ManyToOne
-    @JoinColumn(name = "idUsuarioCreacion", nullable = false)
+    @JoinColumn(name = "idUsuarioActualizacion", nullable = false)
     private Usuario usuarioActualizacion;
 
     public Usuario(){

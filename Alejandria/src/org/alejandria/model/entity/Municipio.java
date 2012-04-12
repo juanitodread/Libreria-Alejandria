@@ -34,7 +34,7 @@ public class Municipio implements Serializable, Comparable<Municipio> {
     @JoinColumn(name = "idUsuarioCreacion", nullable = false)
     private Usuario usuarioCreacion;
     @ManyToOne
-    @JoinColumn(name = "idUsuarioCreacion", nullable = false)
+    @JoinColumn(name = "idUsuarioActualizacion", nullable = false)
     private Usuario usuarioActualizacion;
     @ManyToOne
     @JoinColumn(name = "idEstado", nullable = false)

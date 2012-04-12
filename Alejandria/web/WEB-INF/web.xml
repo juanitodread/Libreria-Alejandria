@@ -31,7 +31,7 @@
         </session-timeout>
     </session-config>
 
-    <!--<filter>
+    <filter>
         <filter-name>sitemesh</filter-name>
         <filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>
     </filter>
@@ -39,5 +39,5 @@
     <filter-mapping>
         <filter-name>sitemesh</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping> -->
+    </filter-mapping>
 </web-app>
