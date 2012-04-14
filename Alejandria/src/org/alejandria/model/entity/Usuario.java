@@ -17,6 +17,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
     @Id
     @SequenceGenerator(name = "secIdUsuario", sequenceName = "secIdUsuario")
     @GeneratedValue(generator = "secIdUsuario", strategy = GenerationType.SEQUENCE)
+    @Column(name = "idUsuario")
     private Long id;
     @Column(name = "nombre")
     private String nombre;
@@ -44,14 +45,16 @@ public class Usuario implements Serializable, Comparable<Usuario> {
     @Column(name = "activo", insertable = false)
     private Boolean activo;
     @Column(name = "fechaCreacion", insertable = false, updatable = false)
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date fechaCreacion;
     @Column(name = "fechaActualizacion", insertable = false, updatable = false)
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date fechaActualizacion;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idUsuarioCreacion", nullable = false)
     private Usuario usuarioCreacion;
-    @ManyToOne
-    @JoinColumn(name = "idUsuarioCreacion", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUsuarioActualizacion", nullable = false)
     private Usuario usuarioActualizacion;
 
     public Usuario(){

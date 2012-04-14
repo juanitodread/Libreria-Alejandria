@@ -17,6 +17,7 @@ public class Estado implements Serializable, Comparable<Estado> {
     @Id
     @SequenceGenerator(sequenceName = "secIdEstado", name = "secIdEstado")
     @GeneratedValue(generator = "secIdEstado", strategy = GenerationType.SEQUENCE)
+    @Column(name = "idEstado")
     private Long id;
     @Column(name = "estado")
     private String estado;
@@ -25,14 +26,16 @@ public class Estado implements Serializable, Comparable<Estado> {
     @Column(name = "activo", insertable = false)
     private Boolean activo;
     @Column(name = "fechaCreacion", insertable = false, updatable = false)
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date fechaCreacion;
     @Column(name = "fechaActualizacion", insertable = false, updatable = false)
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date fechaActualizacion;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idUsuarioCreacion", nullable = false)
     private Usuario usuarioCreacion;
-    @ManyToOne
-    @JoinColumn(name = "idUsuarioCreacion", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUsuarioActualizacion", nullable = false)
     private Usuario usuarioActualizacion;
     @ManyToOne
     @JoinColumn(name = "idPais", nullable = false)

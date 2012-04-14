@@ -19,6 +19,7 @@ public class Municipio implements Serializable, Comparable<Municipio> {
     @Id
     @SequenceGenerator(name = "secIdMunicipio", sequenceName = "secIdMunicipio")
     @GeneratedValue(generator = "secIdMunicipio", strategy = GenerationType.SEQUENCE)
+    @Column(name = "idMunicipio")
     private Long id;
     @Column(name = "municipio")
     private String municipio;
@@ -27,14 +28,16 @@ public class Municipio implements Serializable, Comparable<Municipio> {
     @Column(name = "activo", insertable = false)
     private Boolean activo;
     @Column(name = "fechaCreacion", insertable = false, updatable = false)
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date fechaCreacion;
     @Column(name = "fechaActualizacion", insertable = false, updatable = false)
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date fechaActualizacion;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idUsuarioCreacion", nullable = false)
     private Usuario usuarioCreacion;
-    @ManyToOne
-    @JoinColumn(name = "idUsuarioCreacion", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUsuarioActualizacion", nullable = false)
     private Usuario usuarioActualizacion;
     @ManyToOne
     @JoinColumn(name = "idEstado", nullable = false)
