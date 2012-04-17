@@ -54,10 +54,5 @@
             </p>
         </form>
     </div>
-    <content tag="rightBar">
-        <div>
-            HOLA DINAMICO
-        </div>
-    </content>
 </body>
 </html>
