@@ -5,6 +5,15 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
     <display-name>LibreriaAlejandria</display-name>
 
     <servlet>
@@ -20,6 +29,21 @@
         <servlet-name>alejandriamvc</servlet-name>
         <url-pattern>*.run</url-pattern>
     </servlet-mapping>
+
+
+    <filter>
+        <filter-name>emInViewFilter</filter-name>
+        <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+        <init-param>
+            <param-name>entityManagerFactoryBeanName</param-name>
+            <param-value>entityManagerFactory</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>emInViewFilter</filter-name>
+        <url-pattern>*.run</url-pattern>
+    </filter-mapping>
+
 
     <welcome-file-list>
         <welcome-file>index.run</welcome-file>

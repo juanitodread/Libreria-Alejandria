@@ -15,7 +15,7 @@ import java.util.Date;
 public class Pais implements Serializable, Comparable<Pais>{
 
     @Id
-    @SequenceGenerator(sequenceName = "secIdPais", name = "secIdPais")
+    @SequenceGenerator(sequenceName = "secIdPais", name = "secIdPais", allocationSize = 1)
     @GeneratedValue(generator = "secIdPais", strategy = GenerationType.SEQUENCE)
     @Column(name = "idPais")
     private Long id;
@@ -26,13 +26,15 @@ public class Pais implements Serializable, Comparable<Pais>{
     @Column(name="activo", insertable = false)
     private Boolean activo;
     @Column(name="fechaCreacion", insertable = false, updatable = false)
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date fechaCreacion;
     @Column(name = "fechaActualizacion", insertable = false, updatable = false)
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date fechaActualizacion;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idUsuarioCreacion", nullable = false)
     private Usuario usuarioCreacion;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idUsuarioActualizacion", nullable = false)
     private Usuario usuarioActualizacion;
     
