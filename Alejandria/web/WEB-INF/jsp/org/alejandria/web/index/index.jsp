@@ -14,6 +14,12 @@
     <c:forEach items="${PAISES}" var="pais" >
         <p>${pais.id} -- ${pais.pais} -- ${pais.activo} -- ${pais.fechaCreacion} -- ${pais.fechaActualizacion}</p>
     </c:forEach>
+    <div class="ui-widget">
+        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+            <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+                <strong>Alert:</strong> Sample ui-state-error style.</p>
+        </div>
+    </div>
     <div>
         <a name="TemplateInfo"></a>
         <h1>Template Info</h1>
