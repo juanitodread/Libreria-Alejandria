@@ -17,12 +17,28 @@
     <!-- enabling annotation driven configuration /-->
     <context:annotation-config/>
 
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driverClassName}" />
+        <property name="jdbcUrl" value="${jdbc.url}" />
+        <property name="user" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+
+        <!-- c3p0 properties -->
+        <property name="minPoolSize" value="${c3p0.minPoolSize}" />
+        <property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
+        <property name="checkoutTimeout" value="${c3p0.checkoutTimeout}" />
+        <property name="maxStatements" value="${c3p0.maxStatements}" />
+        <property name="acquireIncrement" value="${c3p0.acquireIncrement}" />
+    </bean>
+
+    <!-- Se quita el datasource de spring via driver para añadir el pool de c3p0
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
         <property name="url" value="${jdbc.url}"/>
         <property name="username"  value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
-    </bean>
+    </bean>-->
+
 
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
