@@ -11,7 +11,9 @@
 </head>
 <body>
     <h3>Prueba Spring MVC :) - Bienvenid@</h3>
-
+    <c:forEach items="${PAISES}" var="pais" >
+        <p>${pais.id} -- ${pais.pais} -- ${pais.activo} -- ${pais.fechaCreacion} -- ${pais.fechaActualizacion}</p>
+    </c:forEach>
     <div>
         <a name="TemplateInfo"></a>
         <h1>Template Info</h1>
