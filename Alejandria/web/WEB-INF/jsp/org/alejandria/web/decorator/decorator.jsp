@@ -2,9 +2,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>stylevantage Blue <sitemesh:write property='title'/></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Librería Alejandría - <sitemesh:write property='title'/></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="css/DecoratorStyle.css" type="text/css" />
+    <link type="text/css" href="css/smoothness/jquery-ui-1.8.19.custom.css" rel="stylesheet" />
+
+    <script type="text/javascript" charset="UTF-8" src="js/jquery-1.7.2.min.js" ></script>
+    <script type="text/javascript" charset="UTF-8" src="js/jquery-ui-1.8.19.custom.min.js" ></script>
+
     <sitemesh:write property='head'/>
 </head>
 <body>
