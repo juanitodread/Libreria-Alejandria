@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: marce
+  Date: 4/21/12
+  Time: 12:12 AM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -17,12 +24,12 @@
     <div id="header">
         <div align="right" class="sesion">
             <p>
-                <div class="sesionButton inline">
-                    <span class="ui-icon ui-icon-person" style="display:inline-block;"></span>
-                    <a href="#" id="iconSesion" title="Perfil de..">Marcela Sena</a>
-                </div>
-                <button id="iconConfig" class="sesionButton">Configuración</button>
-                <button id="iconClose" class="sesionButton">Cerrar Sesión</button>
+            <div class="sesionButton inline">
+                <span class="ui-icon ui-icon-person" style="display:inline-block;"></span>
+                <a href="#" id="iconSesion" title="Perfil de..">Marcela Sena</a>
+            </div>
+            <button id="iconConfig" class="sesionButton">Configuración</button>
+            <button id="iconClose" class="sesionButton">Cerrar Sesión</button>
             </p>
         </div>
         <div>
@@ -30,7 +37,7 @@
                 <h1 id="logo" >Librería<span class="blue">✱</span><span class="gray">Alejandría</span></h1>
                 <h2 id="slogan">Lee como los mejores en...</h2>
             </div>
-            <div>
+            <!--<div>
                 <form method="post" class="searchform" action="http://www.free-css.com/">
                     <p class="margin">
                         <input type="text" name="search_query" size="25" />
@@ -42,16 +49,11 @@
                     </p>
                 </form>
             </div>
-        </div>
+        </div>-->
     </div>
     <div id="menu">
         <ul>
             <li id="menuHome" class="current"><a href="#">Home</a></li>
-            <li><a href="#">Lbros</a></li>
-            <li><a href="#">Promociones</a></li>
-            <li><a href="#">¿Quiénes Somos?</a></li>
-            <li><a href="#">Contáctanos</a></li>
-            <li><a href="#">Sucursales</a></li>
         </ul>
     </div>
     <sitemesh:write property='body'/>

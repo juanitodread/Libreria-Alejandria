@@ -1,6 +1,6 @@
 <sitemesh>
     <mapping path="/*" decorator="/WEB-INF/jsp/org/alejandria/web/decorator/decorator.jsp"/>
+    <!--<mapping path="/admin/usuario/*" decorator="/WEB-INF/jsp/org/alejandria/web/decorator/adminDecorator.jsp"/>-->
     <!-- Exclude path from decoration. -->
-    <mapping path="/javadoc/*" exclue="true"/>
-    <mapping path="/brochures/*" exclue="true"/>
+    <mapping path="*/dynamicUserObject.jsp" exclude="true"/>
 </sitemesh>

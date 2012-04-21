@@ -62,6 +62,6 @@
 
     <!-- Scans the classpath of this application for @Components to deploy as beans -->
     <context:component-scan base-package="org.alejandria.model.dao" />
-    <context:component-scan base-package="org.alejandria.web.index" />
+    <context:component-scan base-package="org.alejandria.web" />
 
 </beans>

@@ -126,7 +126,7 @@ label {
 input {
 	padding: 4px;
 	border:1px solid #eee;
-	font: normal 1em/1.5em Verdana, sans-serif;
+	font: normal 12px/15px Verdana, sans-serif;
 	color:#777;
 }
 textarea {
@@ -145,6 +145,20 @@ input.button {
 	background: #FFF; 
 	padding: 2px 3px; 
 	color: #333;	
+}
+
+select {
+    padding: 4px;
+    border:1px solid #eee;
+    font: normal 12px/15px Verdana, sans-serif;
+    color:#777;
+}
+
+select option{
+    padding: 4px;
+    border:1px solid #eee;
+    font: normal 12px/15px Verdana, sans-serif;
+    color:#777;
 }
 
 /* search form */
@@ -166,18 +180,17 @@ form.searchform input.button {
 	vertical-align: top;
 }
 
-form .box{
-    display: inline;
+/* general forms*/
+.boxLabel {
+    width: 25%;
+    margin: 5px 0px;
+    float: left;
 }
 
-form div.boxLabel{
-    width: 120px;
-    text-align: left;
-    display: inline;
-}
-
-form input.boxInput {
-    width: 30px;
+.boxInput {
+    width: 75%;
+    margin: 5px 0px;
+    float: left;
 }
 
 /*****************/
@@ -363,7 +376,7 @@ form input.boxInput {
 .align-center { text-align: center;	}
 .align-justify { text-align: justify; }
 
-.margin{ margin: 5px; }
+.margin{ margin: 10px 15px; }
 
 /* display classes */
 .clear { clear: both; }
