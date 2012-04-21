@@ -1,7 +1,5 @@
 package org.alejandria.model.entity;
 
-import sun.util.resources.LocaleNames_fi;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -17,7 +15,7 @@ import java.util.Date;
 public class Municipio implements Serializable, Comparable<Municipio> {
 
     @Id
-    @SequenceGenerator(name = "secIdMunicipio", sequenceName = "secIdMunicipio")
+    @SequenceGenerator(name = "secIdMunicipio", sequenceName = "secIdMunicipio", allocationSize = 1)
     @GeneratedValue(generator = "secIdMunicipio", strategy = GenerationType.SEQUENCE)
     @Column(name = "idMunicipio")
     private Long id;

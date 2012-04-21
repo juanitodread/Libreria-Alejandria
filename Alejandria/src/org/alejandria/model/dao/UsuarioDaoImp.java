@@ -1,8 +1,8 @@
 package org.alejandria.model.dao;
 
 import org.alejandria.model.entity.Usuario;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,45 +14,54 @@ import java.util.List;
  * Time: 9:26 PM
  */
 @Repository
-public class UsuarioDaoImp implements UsuarioDao{
+public class UsuarioDaoImp implements UsuarioDao {
 
     private EntityManager em;
 
     @PersistenceContext
-    public void setEm(EntityManager em){
+    public void setEm(EntityManager em) {
         this.em = em;
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Usuario> getAllUsuarios() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return em.createQuery("select u from Usuario u order by u.nombre").getResultList();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Usuario getUsuarioById(Long id) {
-        Usuario usr = new Usuario();
-        usr.setId(id);
+        return em.find(Usuario.class, id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Usuario getUsuarioByIdProxy(Long id) {
         return em.getReference(Usuario.class, id);
-        //return (Usuario) em.createQuery(String.format("select u from Usuario u where u.id = %d", id)).getSingleResult();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Usuario> findUsuarios(String name) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return em.createQuery(String.format("select u from Usuario u where upper(u.nombre) like ('%%%1$s%%') or upper(u.aPaterno) like('%%%1$s%%') or upper(u.aMaterno) like('%%%1$s%%') or upper(u.user) like('%%%1$s%%') order by u.nombre", name.toUpperCase())).getResultList();
     }
 
     @Override
+    @Transactional
     public void insert(Usuario usuario) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        em.persist(usuario);
     }
 
     @Override
+    @Transactional
     public void update(Usuario usuario) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        em.merge(usuario);
     }
 
     @Override
+    @Transactional
     public void delete(Usuario usuario) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        em.remove(usuario);
     }
 }

@@ -14,6 +14,8 @@ public interface EstadoDao {
     public List<Estado> getAllEstados();
 
     public Estado getEstadoById(Long id);
+    
+    public Estado getEstadoByIdProxy(Long id);
 
     public List<Estado> findEstados(String name);
 

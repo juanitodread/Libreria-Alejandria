@@ -14,6 +14,8 @@ public interface PaisDao {
     public List<Pais> getAllPaises();
     
     public Pais getPaisById(Long id);
+
+    public Pais getPaisByIdProxy(Long id);
     
     public List<Pais> findPaises(String name);
 

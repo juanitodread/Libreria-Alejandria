@@ -14,6 +14,8 @@ public interface UsuarioDao {
     public List<Usuario> getAllUsuarios();
 
     public Usuario getUsuarioById(Long id);
+    
+    public Usuario getUsuarioByIdProxy(Long id);
 
     public List<Usuario> findUsuarios(String name);
 

@@ -14,6 +14,8 @@ public interface MunicipioDao {
     public List<Municipio> getAllMunicipios();
 
     public Municipio getMunicipioById(Long id);
+    
+    public Municipio getMunicipioByIdProxy(Long id);
 
     public List<Municipio> findMuncipios(String name);
 
