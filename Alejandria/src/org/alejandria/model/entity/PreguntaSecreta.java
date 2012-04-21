@@ -9,7 +9,7 @@ import java.util.Date;
 public class PreguntaSecreta implements Serializable, Comparable<PreguntaSecreta> {
 
     @Id
-    @SequenceGenerator(sequenceName = "secIdPreguntaSecreta", name="id")
+    @SequenceGenerator(sequenceName = "secIdPreguntaSecreta", name="id", allocationSize = 1)
     @GeneratedValue(generator = "id", strategy = GenerationType.SEQUENCE)
     @Column(name = "idPreguntaSecreta")
     private Long id;

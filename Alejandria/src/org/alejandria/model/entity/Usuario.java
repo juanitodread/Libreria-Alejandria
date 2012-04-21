@@ -15,7 +15,7 @@ import java.util.Date;
 public class Usuario implements Serializable, Comparable<Usuario> {
 
     @Id
-    @SequenceGenerator(name = "secIdUsuario", sequenceName = "secIdUsuario")
+    @SequenceGenerator(name = "secIdUsuario", sequenceName = "secIdUsuario", allocationSize = 1)
     @GeneratedValue(generator = "secIdUsuario", strategy = GenerationType.SEQUENCE)
     @Column(name = "idUsuario")
     private Long id;

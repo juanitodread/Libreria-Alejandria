@@ -15,7 +15,7 @@ import java.util.Date;
 public class Estado implements Serializable, Comparable<Estado> {
 
     @Id
-    @SequenceGenerator(sequenceName = "secIdEstado", name = "secIdEstado")
+    @SequenceGenerator(sequenceName = "secIdEstado", name = "secIdEstado", allocationSize = 1)
     @GeneratedValue(generator = "secIdEstado", strategy = GenerationType.SEQUENCE)
     @Column(name = "idEstado")
     private Long id;
