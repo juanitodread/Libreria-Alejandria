@@ -10,19 +10,38 @@
     <title>Pantalla Principal</title>
 </head>
 <body>
-    <h3>Prueba Spring MVC :) - Bienvenid@@@@</h3>
-    <c:forEach items="${PAISES}" var="pais" >
-        <p>${pais.id} -- ${pais.pais} -- ${pais.activo} -- ${pais.fechaCreacion} -- ${pais.fechaActualizacion}</p>
-    </c:forEach>
-    <div class="ui-widget">
-        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
-            <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
-                <strong>Alert:</strong> Sample ui-state-error style.</p>
+    <div id="content-wrap">
+        <div id="sidebar">
+            <h1>Sidebar Menu</h1>
+            <ul class="sidemenu">
+                <li><a href="http://www.free-css.com/">Home</a></li>
+                <li><a href="#TemplateInfo">Template Info</a></li>
+                <li><a href="#SampleTags">Sample Tags</a></li>
+                <li><a href="http://www.free-css.com/">More Free Templates</a></li>
+                <li><a href="http://www.free-css.com/">Premium Templates</a></li>
+            </ul>
+            <h1>Themes</h1>
+            <ul class="sidemenu">
+                <li><a href="http://www.free-css.com/">Orange</a></li>
+                <li><a href="Green.html">Green</a></li>
+                <li><a href="Blue.html">Blue</a></li>
+            </ul>
+            <h1>Site Partners</h1>
+            <ul class="sidemenu">
+                <li><a href="http://www.free-css.com/">Dreamhost</a></li>
+                <li><a href="http://www.free-css.com/">4templates</a></li>
+                <li><a href="http://www.free-css.com/">TemplateMonster</a></li>
+                <li><a href="http://www.free-css.com/">Fotolia.com</a></li>
+                <li><a href="http://www.free-css.com/">Text Link Ads</a></li>
+            </ul>
+            <h1>Wise Words</h1>
+            <p>&quot;Keep away from people who try to belittle your ambitions. Small people always do that, but the really great make you feel that you, too, can become great.&quot;</p>
+            <p class="align-right">- Mark Twain</p>
         </div>
     </div>
     <div>
         <a name="TemplateInfo"></a>
-        <h1>Template Info :) :)</h1>
+        <h1>Template Info</h1>
         <p><strong>Stylevantage 1.0</strong> is a free, W3C-compliant, CSS-based website template by <strong>styleshout.com</strong>. This work is distributed under the <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/2.5/"> Creative Commons Attribution 2.5 License</a>, which means that you are free to use and modify it for any purpose. All I ask is that you include a link back to my website in your credits.</p>
         <p>For more free designs, you can visit my website to see my other works.</p>
         <p>Good luck and I hope you find my free templates useful!</p>
