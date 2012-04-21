@@ -61,6 +61,7 @@ public class MunicipioDaoImp implements MunicipioDao{
     }
 
     @Override
+    @Transactional
     public void delete(Municipio municipio) {
         em.remove(municipio);
     }
