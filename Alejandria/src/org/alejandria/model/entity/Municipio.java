@@ -1,7 +1,5 @@
 package org.alejandria.model.entity;
 
-import sun.util.resources.LocaleNames_fi;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;

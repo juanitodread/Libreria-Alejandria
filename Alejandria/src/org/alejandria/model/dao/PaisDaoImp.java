@@ -13,7 +13,6 @@ import java.util.List;
  * Date: 4/10/12
  * Time: 9:26 PM
  */
-@SuppressWarnings("unchecked")
 @Repository
 public class PaisDaoImp implements PaisDao{
 
@@ -33,7 +32,13 @@ public class PaisDaoImp implements PaisDao{
     @Override
     @Transactional(readOnly = true)
     public Pais getPaisById(Long id) {
-        return (Pais) em.createQuery(String.format("select p from Pais p where p.id = %d", id)).getSingleResult();
+        return (Pais) em.find(Pais.class, id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Pais getPaisByIdProxy(Long id) {
+        return (Pais) em.getReference(Pais.class, id);
     }
 
     @Override
@@ -43,19 +48,19 @@ public class PaisDaoImp implements PaisDao{
     }
 
     @Override
-    @Transactional(readOnly = false)
+    @Transactional
     public void insert(Pais pais) {
         em.persist(pais);
     }
 
     @Override
-    @Transactional(readOnly = false)
+    @Transactional
     public void update(Pais pais) {
         em.merge(pais);
     }
 
     @Override
-    @Transactional(readOnly = false)
+    @Transactional
     public void delete(Pais pais) {
         em.remove(pais);
     }
