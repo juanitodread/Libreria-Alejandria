@@ -1,7 +1,6 @@
 package org.alejandria.model.dao;
 
 import org.alejandria.model.entity.Usuario;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,12 +14,12 @@ import java.util.List;
  * Time: 9:26 PM
  */
 @Repository
-public class UsuarioDaoImp implements UsuarioDao{
+public class UsuarioDaoImp implements UsuarioDao {
 
     private EntityManager em;
 
     @PersistenceContext
-    public void setEm(EntityManager em){
+    public void setEm(EntityManager em) {
         this.em = em;
     }
 
@@ -38,7 +37,7 @@ public class UsuarioDaoImp implements UsuarioDao{
 
     @Override
     @Transactional(readOnly = true)
-    public Usuario getUsuarioByIdProxy(Long id){
+    public Usuario getUsuarioByIdProxy(Long id) {
         return em.getReference(Usuario.class, id);
     }
 

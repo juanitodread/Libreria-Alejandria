@@ -5,7 +5,7 @@
 	http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
              version="1.0">
 
-    <persistence-unit name="alejandriaPU" transaction-type="JTA">
+    <persistence-unit name="alejandriaPU" transaction-type="RESOURCE_LOCAL">
         <properties>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
