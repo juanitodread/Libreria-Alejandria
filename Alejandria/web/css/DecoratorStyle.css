@@ -262,6 +262,14 @@ form.searchform input.button {
 	border-left: 1px solid #f2f2f2;
 }
 
+#main-admin {
+    float: left;
+    margin-left: 15px;
+    padding: 0;
+    width: 74%;
+    border-left: 1px solid #f2f2f2;
+}
+
 .post-footer {
 	background-color: #FAFAFA;
 	padding: 5px; margin-top: 20px;

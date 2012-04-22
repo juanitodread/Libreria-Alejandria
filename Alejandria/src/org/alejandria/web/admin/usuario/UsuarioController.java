@@ -17,7 +17,7 @@ public class UsuarioController{
 
     @RequestMapping("/usuario.run")
     public ModelAndView getUsuarioView(ModelAndView mv){
-        mv.setViewName("org/alejandria/web/admin/usuario/usuario.admin");
+        mv.setViewName("org/alejandria/web/admin/usuario/usuario");
         return mv;
     }
 }
