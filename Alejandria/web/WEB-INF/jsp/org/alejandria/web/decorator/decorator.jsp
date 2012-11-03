@@ -11,6 +11,7 @@
     <script type="text/javascript" charset="UTF-8" src="js/jquery-1.7.2.min.js" ></script>
     <script type="text/javascript" charset="UTF-8" src="js/jquery-ui-1.8.19.custom.min.js" ></script>
     <script type="text/javascript" charset="UTF-8" src="js/decorator.js" ></script>
+    <script type="text/javascript" charset="UTF-8" src="js/ajax/ajaxQuerys.js" ></script>
 
 </head>
 <body>

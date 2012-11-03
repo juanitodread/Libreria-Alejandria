@@ -13,6 +13,8 @@ public interface EstadoDao {
 
     public List<Estado> getAllEstados();
 
+    public List<Estado> getEstadosByPais(Long idPais);
+
     public Estado getEstadoById(Long id);
     
     public Estado getEstadoByIdProxy(Long id);

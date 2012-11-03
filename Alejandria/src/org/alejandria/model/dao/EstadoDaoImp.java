@@ -30,6 +30,11 @@ public class EstadoDaoImp implements EstadoDao{
     }
 
     @Override
+    public List<Estado> getEstadosByPais(Long idPais) {
+        return em.createQuery(String.format("select e from Estado e where e.pais.id = %d", idPais)).getResultList();
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public Estado getEstadoById(Long id) {
         return em.find(Estado.class, id);
