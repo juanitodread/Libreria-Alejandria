@@ -31,5 +31,9 @@ function loadInit(){
    $('#cmbPais').change(function(){
        loadSelectWithSource('cmbEstado', $('#cmbPais').val(), loadStatesFromCountry);
    });
+
+    $('#cmbEstado').change(function(){
+        loadSelectWithSource('cmbMunicipio', $('#cmbEstado').val(), loadCitiesFromState);
+    });
 }
 

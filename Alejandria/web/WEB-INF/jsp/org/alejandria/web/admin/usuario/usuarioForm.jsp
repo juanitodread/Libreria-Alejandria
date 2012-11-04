@@ -99,8 +99,8 @@
                         <label>Municipio</label>
                     </div>
                     <div class="boxInput">
-                        <select>
-                            <option>Seleccione..</option>
+                        <select id="cmbMunicipio" name="cmbMunicipio">
+                            <option value="-1">Seleccione..</option>
                         </select>
                     </div><br/>
 

@@ -32,6 +32,12 @@ public class MunicipioDaoImp implements MunicipioDao{
 
     @Override
     @Transactional(readOnly = true)
+    public List<Municipio> getMunicipiosByEstado(Long idEstado) {
+        return em.createQuery(String.format("select m from Municipio m where m.estado.id = %d", idEstado)).getResultList();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public Municipio getMunicipioById(Long id) {
         return em.find(Municipio.class, id);
     }

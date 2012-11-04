@@ -13,6 +13,8 @@ public interface MunicipioDao {
 
     public List<Municipio> getAllMunicipios();
 
+    public List<Municipio> getMunicipiosByEstado(Long idEstado);
+
     public Municipio getMunicipioById(Long id);
     
     public Municipio getMunicipioByIdProxy(Long id);
