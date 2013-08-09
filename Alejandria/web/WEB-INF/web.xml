@@ -27,7 +27,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>alejandriamvc</servlet-name>
-        <url-pattern>*.run</url-pattern>
+        <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
 
 
@@ -41,12 +41,12 @@
     </filter>
     <filter-mapping>
         <filter-name>emInViewFilter</filter-name>
-        <url-pattern>*.run</url-pattern>
+        <url-pattern>*.htm</url-pattern>
     </filter-mapping>
 
 
     <welcome-file-list>
-        <welcome-file>index.run</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
     <session-config>
