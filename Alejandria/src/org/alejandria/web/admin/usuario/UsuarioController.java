@@ -19,7 +19,7 @@ public class UsuarioController{
     @Autowired
     private UsuarioService service;
 
-    @RequestMapping("/usuario.run")
+    @RequestMapping("/usuario")
     public ModelAndView getUsuarioView(ModelAndView mv){
         mv.setViewName("org/alejandria/web/admin/usuario/usuario");
         mv.addObject("preguntasSecretas", service.getAllPreguntasSecretas());

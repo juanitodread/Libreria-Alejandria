@@ -25,7 +25,7 @@ public class IndexController{
         this.service = service;
     }
 
-    @RequestMapping("/index.run")
+    @RequestMapping("/index")
     public ModelAndView getIndexView(ModelAndView mv){
         mv.setViewName("org/alejandria/web/index/index");
         mv.addObject("PAISES", service.getPaises());

@@ -14,25 +14,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Juan
- * Date: 2/11/12
- * Time: 10:17 PM
- * To change this template use File | Settings | File Templates.
+ * Created with IntelliJ IDEA. User: Juan Date: 2/11/12 Time: 10:17 PM To change
+ * this template use File | Settings | File Templates.
  */
 @Controller
 public class AjaxQueryController {
 
     @Autowired
-    private EstadoDao estadoDao;
+    private EstadoDao    estadoDao;
     @Autowired
     private MunicipioDao municipioDao;
 
-    @RequestMapping(value = "/ajaxQueryLoadStatesFromCountry.run", method = RequestMethod.GET)
-    public @ResponseBody String loadStatesFromCountry(@RequestParam Long idPais){
+    @RequestMapping(value = "/ajaxQueryLoadStatesFromCountry", method = RequestMethod.GET)
+    public @ResponseBody
+    String loadStatesFromCountry(@RequestParam Long idPais) {
         List<Estado> estados = estadoDao.getEstadosByPais(idPais);
         StringBuilder sb = new StringBuilder("{\"options\":[");
-        for(Estado est : estados){
+        for (Estado est : estados) {
             sb.append("{\"key\" : ");
             sb.append(est.getId());
             sb.append(", \"value\" : \"");
@@ -43,11 +41,13 @@ public class AjaxQueryController {
         return sb.toString();
     }
 
-    @RequestMapping(value = "/ajaxQueryLoadSCitiesFromState.run", method = RequestMethod.GET)
-    public @ResponseBody String loadSCitiesFromState(@RequestParam Long idState){
-        List<Municipio> municipios = municipioDao.getMunicipiosByEstado(idState);
+    @RequestMapping(value = "/ajaxQueryLoadSCitiesFromState", method = RequestMethod.GET)
+    public @ResponseBody
+    String loadSCitiesFromState(@RequestParam Long idState) {
+        List<Municipio> municipios = municipioDao
+                .getMunicipiosByEstado(idState);
         StringBuilder sb = new StringBuilder("{\"options\":[");
-        for(Municipio mun : municipios){
+        for (Municipio mun : municipios) {
             sb.append("{\"key\" : ");
             sb.append(mun.getId());
             sb.append(", \"value\" : \"");

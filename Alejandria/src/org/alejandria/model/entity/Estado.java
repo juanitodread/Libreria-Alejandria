@@ -1,8 +1,20 @@
 package org.alejandria.model.entity;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.SequenceGenerator;
 
 /**
  * User: @juanitodread
@@ -14,6 +26,11 @@ import java.util.Date;
 @Table(name = "Estado")
 public class Estado implements Serializable, Comparable<Estado> {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -4413898761750020881L;
+    
     @Id
     @SequenceGenerator(sequenceName = "secIdEstado", name = "secIdEstado", allocationSize = 1)
     @GeneratedValue(generator = "secIdEstado", strategy = GenerationType.SEQUENCE)

@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class RegistroUsuarioController {
 
-    @RequestMapping("/registroUsuario.run")
+    @RequestMapping("/registroUsuario")
     public ModelAndView getRegistroUsuarioView(ModelAndView mv){
         mv.setViewName("org/alejandria/web/bookstore/usuario/registroUsuario");
         return mv;
