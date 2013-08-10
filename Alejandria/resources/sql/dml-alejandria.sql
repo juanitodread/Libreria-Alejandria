@@ -1,4 +1,4 @@
-﻿--------------------------------------INSERTS INICIALES----------------------------------------
+--------------------------------------INSERTS INICIALES----------------------------------------
 --Este insert es necesario aqui
 insert into Usuario(nombre, aPaterno, aMaterno, email, usuario, pass, respuestaSecreta, idMunicipio, idPreguntaSecreta, idUsuarioCreacion, idUsuarioActualizacion)
 values('alejandría', 'alejandría', 'alejandría', 'alejandría@gmail.com', 'masteradmin', md5('masteradmin@alejandría'), md5('admin'), 1, 1, 1, 1);
