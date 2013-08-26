@@ -7,18 +7,24 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <h1>Catálogos Generales</h1>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<!-- fmt:setLocale value="es"/-->
+<fmt:setBundle basename="org.alejandria.web.i18n.text.label" var="label" />
+
+
+    <h1><fmt:message key="org.alejandria.web.admin.internalMenu.catalogue.general.title" bundle="${label}"/></h1>
     <ul class="sidemenu">
-        <li><a href="#">Usuario</a></li>
-        <li><a href="#">Pregunta Secreta</a></li>
-        <li><a href="#">País</a></li>
-        <li><a href="#">Estado</a></li>
-        <li><a href="#">Municipio</a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.admin.internalMenu.catalogue.general.user" bundle="${label}"/></a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.admin.internalMenu.catalogue.general.secretQuestion" bundle="${label}"/></a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.admin.internalMenu.catalogue.general.country" bundle="${label}"/></a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.admin.internalMenu.catalogue.general.state" bundle="${label}"/></a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.admin.internalMenu.catalogue.general.city" bundle="${label}"/></a></li>
     </ul>
 
-    <h1>Catálogos Libro</h1>
+    <h1><fmt:message key="org.alejandria.web.admin.internalMenu.catalogue.books.title" bundle="${label}"/></h1>
     <ul class="sidemenu">
-        <li><a href="#">Libro</a></li>
-        <li><a href="#">Autor</a></li>
-        <li><a href="#">Editorial</a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.admin.internalMenu.catalogue.books.book" bundle="${label}"/></a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.admin.internalMenu.catalogue.books.author" bundle="${label}"/></a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.admin.internalMenu.catalogue.books.editorial" bundle="${label}"/></a></li>
     </ul>

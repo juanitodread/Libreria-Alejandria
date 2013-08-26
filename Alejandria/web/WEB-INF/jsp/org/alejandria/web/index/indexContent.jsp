@@ -7,73 +7,94 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<!-- fmt:setLocale value="es"/-->
+<fmt:setBundle basename="org.alejandria.web.i18n.text.label" var="label" />
+
+
 <div id="sidebar">
-    <h1>Sidebar Menu</h1>
+    <h1><fmt:message key="org.alejandria.web.content.index.leftBar.aboutBooks.title" bundle="${label}"/></h1>
     <ul class="sidemenu">
-        <li><a href="http://www.free-css.com/">Home</a></li>
-        <li><a href="#TemplateInfo">Template Info</a></li>
-        <li><a href="#SampleTags">Sample Tags</a></li>
-        <li><a href="http://www.free-css.com/">More Free Templates</a></li>
-        <li><a href="http://www.free-css.com/">Premium Templates</a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.content.index.leftBar.aboutBooks.news" bundle="${label}"/></a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.content.index.leftBar.aboutBooks.bestSellers" bundle="${label}"/></a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.content.index.leftBar.aboutBooks.popular" bundle="${label}"/></a></li>
     </ul>
-    <h1>Themes</h1>
+    <h1><fmt:message key="org.alejandria.web.content.index.leftBar.aboutAuthors.title" bundle="${label}"/></h1>
     <ul class="sidemenu">
-        <li><a href="http://www.free-css.com/">Orange</a></li>
-        <li><a href="Green.html">Green</a></li>
-        <li><a href="Blue.html">Blue</a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.content.index.leftBar.aboutAuthors.news" bundle="${label}"/></a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.content.index.leftBar.aboutAuthors.popular" bundle="${label}"/></a></li>
     </ul>
-    <h1>Site Partners</h1>
+    <h1><fmt:message key="org.alejandria.web.content.index.leftBar.events.title" bundle="${label}"/></h1>
     <ul class="sidemenu">
-        <li><a href="http://www.free-css.com/">Dreamhost</a></li>
-        <li><a href="http://www.free-css.com/">4templates</a></li>
-        <li><a href="http://www.free-css.com/">TemplateMonster</a></li>
-        <li><a href="http://www.free-css.com/">Fotolia.com</a></li>
-        <li><a href="http://www.free-css.com/">Text Link Ads</a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.content.index.leftBar.events.upcoming" bundle="${label}"/></a></li>
+        <li><a href="#"><fmt:message key="org.alejandria.web.content.index.leftBar.events.popular" bundle="${label}"/></a></li>
     </ul>
-    <h1>Wise Words</h1>
-    <p>&quot;Keep away from people who try to belittle your ambitions. Small people always do that, but the really great make you feel that you, too, can become great.&quot;</p>
-    <p class="align-right">- Mark Twain</p>
 </div>
 <div id="main">
-    <a name="TemplateInfo"></a>
-    <h1>Template Info</h1>
-    <p><strong>Stylevantage 1.0</strong> is a free, W3C-compliant, CSS-based website template by <strong>styleshout.com</strong>. This work is distributed under the <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/2.5/"> Creative Commons Attribution 2.5 License</a>, which means that you are free to use and modify it for any purpose. All I ask is that you include a link back to my website in your credits.</p>
-    <p>For more free designs, you can visit my website to see my other works.</p>
-    <p>Good luck and I hope you find my free templates useful!</p>
-    <p class="post-footer align-right"> <a href="http://www.free-css.com/" class="readmore">Read more</a> <a href="http://www.free-css.com/" class="comments">Comments (7)</a> <span class="date">Sep 15, 2006</span> </p>
-    <a name="SampleTags"></a>
-    <h1>Sample Tags</h1>
-    <h3>Code</h3>
-    <p><code> code-sample { <br />
-        font-weight: bold;<br />
-        font-style: italic;<br />
-        } </code></p>
-    <h3>Example Lists</h3>
-    <ol>
-        <li><span>example of ordered list</span></li>
-        <li><span>uses span to color the numbers</span></li>
-    </ol>
-    <ul>
-        <li><span>example of unordered list</span></li>
-        <li><span>uses span to color the bullets</span></li>
-    </ul>
-    <h3>Blockquote</h3>
-    <blockquote>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat....</p>
-    </blockquote>
-    <h3>Image and text</h3>
-    <p><a href="http://www.free-css.com/"><img src="images/firefox-gray.jpg" width="100" height="120" alt="firefox" class="float-left" /></a> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. Curabitur vel urna. In tristique orci porttitor ipsum. Aliquam ornare diam iaculis nibh. Proin luctus, velit pulvinar ullamcorper nonummy, mauris enim eleifend urna, congue egestas elit lectus eu est. </p>
-    <h3>Example Form</h3>
-    <form action="http://www.free-css.com/">
-        <p>
-            <label>Name</label>
-            <input name="dname" value="Your Name" type="text" size="30" />
-            <label>Email</label>
-            <input name="demail" value="Your Email" type="text" size="30" />
-            <label>Your Comments</label>
-            <textarea rows="5" cols="5"></textarea>
-            <br />
-            <input class="button" type="submit" />
+	<div>
+		<h1><fmt:message key="org.alejandria.web.content.index.body.quote.title" bundle="${label}"/></h1>
+	    <blockquote>
+	        <p>Eso desean quienes viven estos tiempos, pero no les toca a ellos decidir. Sólo tú puedes decidir qué hacer con el tiempo que se te ha dado.</p>	        
+	    </blockquote>
+	    <h3><fmt:message key="org.alejandria.web.content.index.body.quote.who" bundle="${label}"/></h3>
+	    <form>
+	    <p>	    	
+        	<label>Aragorn: </label><input type="radio" name="quoteAnswer"/>&nbsp;&nbsp;
+        	<label>Elrond: </label><input type="radio" name="quoteAnswer"/>&nbsp;&nbsp;
+        	<label>Gandalf: </label><input type="radio" name="quoteAnswer"/><br/>
+        	<input class="button" type="button" value="<fmt:message key="org.alejandria.web.common.content.submit" bundle="${label}"/>"/>
         </p>
-    </form>
+        </form>
+    </div>
+    <div>
+    	<h1><fmt:message key="org.alejandria.web.content.index.body.book.title" bundle="${label}"/></h1>
+    	<p>
+    		<a href="#"><img src="images/book.jpg" width="100" height="120" alt="" class="float-left" /></a> 
+    		Un enemigo invisible plaga nuestro mundo. Los seres humanos se han convertido en huéspedes de una especie invasora que se adueña de sus mentes, dejando intactos sus cuerpos para que continúen con vidas aparentemente normales. La raza humana ha sucumbido casi por completo.
+			La captura de Melanie, una de las pocas personas que permanece en "estado salvaje", parece ser el fin.
+			Wanderer, el alma invasora en el cuerpo de Melanie, recibió toda clase de advertencias sobre lo que implica habitar un cuerpo humano: las emociones abrumadoras, la exhuberancia de los sentidos, la persistencia de los recuerdos. Sólo existe un problema inesperado: un huésped que se rehúsa desalojar su antiguo cuerpo y perder el control de su mente.
+			<br/>
+			...<a href="#"><fmt:message key="org.alejandria.web.common.content.readMore" bundle="${label}"/></a>
+    	</p>
+    </div>
+    <div>
+	    <h1><fmt:message key="org.alejandria.web.content.index.body.writeUs.title" bundle="${label}"/></h1>
+	    <form>
+	        <p>
+	            <label><fmt:message key="org.alejandria.web.content.index.body.writeUs.name" bundle="${label}"/></label>
+	            <input name="dname" value="Your Name" type="text" size="30" />
+	            <label><fmt:message key="org.alejandria.web.content.index.body.writeUs.email" bundle="${label}"/></label>
+	            <input name="demail" value="Your Email" type="text" size="30" />
+	            <label><fmt:message key="org.alejandria.web.content.index.body.writeUs.yourComments" bundle="${label}"/></label>
+	            <textarea rows="2" cols="2"></textarea>
+	            <br />
+	            <input class="button" type="submit" value="<fmt:message key="org.alejandria.web.common.content.submit" bundle="${label}"/>"/>	            
+	        </p>
+	        <p>
+			    <div>
+				    <h3>Patrick Mckinley</h3>
+				    <p><strong>Nice Page to buy books</strong></p>
+				    <p>I really found what I was looking for</p>
+				    <p class="post-footer align-right"><a href="http://www.free-css.com/" class="comments">Comments (7)</a> <span class="date">Sep 15, 2006</span> </p>	    
+			    </div>
+			    <div>
+				    <h3>Linda Lane</h3>
+				    <p>Thanks Alejandría, I found everything what I was looking for and with the best price</p>
+				    <p class="post-footer align-right"><a href="http://www.free-css.com/" class="comments">Comments (1)</a> <span class="date">Sep 15, 2006</span> </p>
+			    </div>
+	        </p>	        
+	    </form>	    	    
+    </div>
+    <h1><fmt:message key="org.alejandria.web.content.index.body.social.title" bundle="${label}"/></h1>
+    <h3>twitter: @BookstoreAlejandria</h3>
+    <ul>
+        <li><span>#BookstoreAlejadría</span></li>
+        <li><span>#ReadingLikeTheBestInBA</span></li>
+    </ul>
+    <h3>facebook: https://www.facebook.com/BookstoreAlejandria</h3>
+    <ul>
+        <li><span><a href="#">Reading Group</a></span></li>
+        <li><span><a href="#">User Promotions</a></span></li>
+    </ul>        
 </div>
