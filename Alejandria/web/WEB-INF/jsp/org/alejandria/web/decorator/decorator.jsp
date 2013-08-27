@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="css/DecoratorStyle.css" type="text/css" />
     <link type="text/css" href="css/smoothness/jquery-ui-1.8.19.custom.css" rel="stylesheet" />
 
-    <script type="text/javascript" charset="UTF-8" src="js/jquery-1.7.2.min.js" ></script>
-    <script type="text/javascript" charset="UTF-8" src="js/jquery-ui-1.8.19.custom.min.js" ></script>
+    <script type="text/javascript" charset="UTF-8" src="js/jquery-1.7.2/jquery-1.7.2.min.js" ></script>
+    <script type="text/javascript" charset="UTF-8" src="js/jquery-1.7.2/jquery-ui-1.8.19.custom.min.js" ></script>
     <script type="text/javascript" charset="UTF-8" src="js/decorator.js" ></script>
     <script type="text/javascript" charset="UTF-8" src="js/ajax/ajaxQuerys.js" ></script>
 

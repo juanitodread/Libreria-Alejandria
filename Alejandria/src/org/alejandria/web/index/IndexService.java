@@ -4,6 +4,8 @@ import org.alejandria.model.dao.PaisDao;
 import org.alejandria.model.dao.UsuarioDao;
 import org.alejandria.model.entity.Pais;
 import org.alejandria.model.entity.Usuario;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +23,8 @@ public class IndexService {
     private PaisDao paisDao;
     @Autowired
     private UsuarioDao usuarioDao;
+    
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     public void setDao(PaisDao paisDao){
        this.paisDao = paisDao;
@@ -54,6 +58,7 @@ public class IndexService {
     }
     
     public List<Pais> getPaises(){
+        log.info("get paises..");
         return paisDao.getAllPaises();
     }
 

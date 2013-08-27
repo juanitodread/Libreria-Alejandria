@@ -16,24 +16,13 @@ $(function () {
     loadInit();
 });
 
-function loadSelectWithSource(id, param, data){
-    var html = '<option value="-1">Seleccione..</option>';
-    if(param != null && parseInt(param, 10) > 0){
-        var src = data(param);
-        for(var i = 0; i < src.options.length; i++){
-            html += '<option value="' + src.options[i].key + '">' + src.options[i].value + '</option>';
-        }
-    }
-    $('#' + id).html(html);
-}
-
 function loadInit(){
-   $('#cmbPais').change(function(){
-       loadSelectWithSource('cmbEstado', $('#cmbPais').val(), loadStatesFromCountry);
+   $('#cmbPais').change(function() {
+       loadStatesFromCountry('cmbEstado', $('#cmbPais').val(), {key: "id", value: "estado"});
    });
 
     $('#cmbEstado').change(function(){
-        loadSelectWithSource('cmbMunicipio', $('#cmbEstado').val(), loadCitiesFromState);
+	loadCitiesFromState('cmbMunicipio', $('#cmbEstado').val(), {key: "id", value: "municipio"});
     });
 }
 

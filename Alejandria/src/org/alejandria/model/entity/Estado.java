@@ -16,6 +16,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.SequenceGenerator;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 /**
  * User: @juanitodread
  * Date: 4/1/12
@@ -110,6 +112,7 @@ public class Estado implements Serializable, Comparable<Estado> {
         this.fechaActualizacion = fechaActualizacion;
     }
 
+    @JsonIgnore
     public Usuario getUsuarioCreacion() {
         return usuarioCreacion;
     }
@@ -118,6 +121,7 @@ public class Estado implements Serializable, Comparable<Estado> {
         this.usuarioCreacion = usuarioCreacion;
     }
 
+    @JsonIgnore
     public Usuario getUsuarioActualizacion() {
         return usuarioActualizacion;
     }
@@ -126,6 +130,7 @@ public class Estado implements Serializable, Comparable<Estado> {
         this.usuarioActualizacion = usuarioActualizacion;
     }
 
+    @JsonIgnore
     public Pais getPais() {
         return pais;
     }
@@ -150,6 +155,6 @@ public class Estado implements Serializable, Comparable<Estado> {
         if(null == obj || !(obj instanceof Estado)){
             return false;
         }
-        return ((Estado) obj).getId() == this.id;
+        return ((Estado) obj).getId().equals(this.id);
     }
 }
