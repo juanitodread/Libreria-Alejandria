@@ -130,7 +130,6 @@ public class Estado implements Serializable, Comparable<Estado> {
         this.usuarioActualizacion = usuarioActualizacion;
     }
 
-    @JsonIgnore
     public Pais getPais() {
         return pais;
     }

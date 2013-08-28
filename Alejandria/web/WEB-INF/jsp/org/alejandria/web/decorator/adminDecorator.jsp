@@ -20,9 +20,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="css/DecoratorStyle.css" type="text/css" />
     <link type="text/css" href="css/smoothness/jquery-ui-1.8.19.custom.css" rel="stylesheet" />
+    <link type="text/css" href="css/smoothness/ui.jqgrid.css" rel="stylesheet" />
 
     <script type="text/javascript" charset="UTF-8" src="js/jquery-1.7.2/jquery-1.7.2.min.js" ></script>
     <script type="text/javascript" charset="UTF-8" src="js/jquery-1.7.2/jquery-ui-1.8.19.custom.min.js" ></script>
+    <script type="text/javascript" charset="UTF-8" src="js/i18n/grid.locale-en.js" ></script>
+    <script type="text/javascript" charset="UTF-8" src="js/jquery-1.7.2/jquery.jqGrid.min.js" ></script>
     <script type="text/javascript" charset="UTF-8" src="js/decorator.js" ></script>
     <script type="text/javascript" charset="UTF-8" src="js/ajax/ajaxQuerys.js" ></script>
     <script type="text/javascript" charset="UTF-8" src="js/util/util.js" ></script>

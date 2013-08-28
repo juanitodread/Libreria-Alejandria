@@ -17,6 +17,7 @@ function loadStatesFromCountry(idSelect, idCountry, properties) {
 	data: {"idPais": idCountry},
 	dataType: "json",
 	success: function(data) {
+	    console.debug(data);
 	    Util.loadSelectWithAjax(idSelect, idCountry, data, properties);
 	}, 
 	error: function(e) {
@@ -34,6 +35,7 @@ function loadCitiesFromState(idSelect, idState, properties) {
 	data: {"idState": idState},
 	dataType: "json",
 	success: function(data) {
+	    console.debug(data);
 	    Util.loadSelectWithAjax(idSelect, idState, data, properties);
 	}, 
 	error: function(e) {

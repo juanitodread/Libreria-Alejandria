@@ -109,4 +109,8 @@
             </form>
         </div>
         <br />
+        <div id="grid" style="width: 620px">
+            <table id="userGrid"></table>
+            <div id="pager"></div>
+        </div>
     </div>

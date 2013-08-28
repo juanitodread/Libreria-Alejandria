@@ -71,7 +71,6 @@ public class Municipio implements Serializable, Comparable<Municipio> {
         this.codigo = codigo;
     }
 
-    @JsonIgnore
     public Estado getEstado() {
         return estado;
     }

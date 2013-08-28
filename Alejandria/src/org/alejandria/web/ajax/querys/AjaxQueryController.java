@@ -20,8 +20,10 @@ package org.alejandria.web.ajax.querys;
 
 import org.alejandria.model.dao.EstadoDao;
 import org.alejandria.model.dao.MunicipioDao;
+import org.alejandria.model.dao.UsuarioDao;
 import org.alejandria.model.entity.Estado;
 import org.alejandria.model.entity.Municipio;
+import org.alejandria.model.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,7 +48,9 @@ public class AjaxQueryController {
     private EstadoDao    estadoDao;
     @Autowired
     private MunicipioDao municipioDao;
-
+    @Autowired
+    private UsuarioDao usuarioDao;
+    
     @RequestMapping(value = "/loadStatesFromCountry", method = RequestMethod.GET)
     public @ResponseBody
     List<Estado> loadStatesFromCountry(@RequestParam Long idPais) {
@@ -60,6 +64,13 @@ public class AjaxQueryController {
         List<Municipio> municipios = municipioDao
                 .getMunicipiosByEstado(idState);
         return municipios;
+    }
+    
+    @RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Usuario> getAllUsers() {
+        List<Usuario> usuarios = usuarioDao.getAllUsuarios();
+        return usuarios;
     }
 
 }

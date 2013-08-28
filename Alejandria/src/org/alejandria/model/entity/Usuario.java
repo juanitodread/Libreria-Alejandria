@@ -1,6 +1,10 @@
 package org.alejandria.model.entity;
 
 import javax.persistence.*;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -173,6 +177,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
         this.fechaActualizacion = fechaActualizacion;
     }
 
+    @JsonIgnore
     public Usuario getUsuarioCreacion() {
         return usuarioCreacion;
     }
@@ -181,6 +186,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
         this.usuarioCreacion = usuarioCreacion;
     }
 
+    @JsonIgnore
     public Usuario getUsuarioActualizacion() {
         return usuarioActualizacion;
     }

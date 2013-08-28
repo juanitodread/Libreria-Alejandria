@@ -148,15 +148,13 @@ input.button {
 }
 
 select {
-    padding: 4px;
-    border:1px solid #eee;
+    padding: 2px;
     font: normal 12px/15px Verdana, sans-serif;
     color:#777;
 }
 
 select option{
-    padding: 4px;
-    border:1px solid #eee;
+    padding: 2px;
     font: normal 12px/15px Verdana, sans-serif;
     color:#777;
 }
