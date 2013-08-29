@@ -14,7 +14,7 @@ function loadStatesFromCountry(idSelect, idCountry, properties) {
 	type: "GET",
 	url: [AJAX_CONTEXT, "loadStatesFromCountry", URL_PAGE_SUFFIX].join(""),
 	async: true,
-	data: {"idPais": idCountry},
+	data: {"idCountry": idCountry},
 	dataType: "json",
 	success: function(data) {
 	    console.debug(data);

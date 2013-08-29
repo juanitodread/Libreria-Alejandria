@@ -7,7 +7,7 @@
  */
 
 $(function () {
-    $("#submitUsuario").button({
+    $("#submitUser").button({
         icons:{
             primary:"ui-icon-check"
         }
@@ -17,12 +17,12 @@ $(function () {
 });
 
 function loadInit(){
-   $('#cmbPais').change(function() {
-       loadStatesFromCountry('cmbEstado', $('#cmbPais').val(), {key: "id", value: "estado"});
+   $('#cmbCountry').change(function() {
+       loadStatesFromCountry('cmbState', $('#cmbCountry').val(), {key: "id", value: "estado"});
    });
 
-    $('#cmbEstado').change(function(){
-	loadCitiesFromState('cmbMunicipio', $('#cmbEstado').val(), {key: "id", value: "municipio"});
+    $('#cmbState').change(function(){
+	loadCitiesFromState('cmbTown', $('#cmbState').val(), {key: "id", value: "municipio"});
     });
     
     //load user's grid
@@ -36,7 +36,7 @@ function loadInit(){
 	           {name: 'aPaterno', width: '20%'},
 	           {name: 'aMaterno', width: '20%'},
 	           {name: 'email', width: '20%'},
-	           {name: 'municipio.estado.pais.pais', width: '20%'}],
+	           {name: 'user', width: '20%'}],
 	pager: '#pager',
 	rowNum: 10,
 	rowList: [10, 20, 30],
@@ -46,5 +46,19 @@ function loadInit(){
 	gridview: true,
 	autoenconde: true
     });
+    
+    $('#userForm').validate({
+	rules: {
+	    txtName: {
+		required: true,
+		maxLength: 100
+	    },
+	    txtEmail: {
+		required: true, 
+		email: true
+	    }
+	}
+    });
+    
 }
 

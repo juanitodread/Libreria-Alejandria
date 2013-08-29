@@ -7,104 +7,104 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script type="text/javascript" charset="UTF-8" src="js/admin/usuario.js" ></script>
+<script type="text/javascript" charset="UTF-8" src="<c:out value="${pageContext.request.contextPath}"/>/js/admin/usuario.js" ></script>
     <div id="main-admin">
         <div>
             <h1>Administrar Usuarios</h1>
-            <form action="">
+            <form name="userForm" id="userForm" autocomplete="off" action="<c:out value="${pageContext.request.contextPath}"/>/user/saveUser.htm" method="post">
                 <div class="margin">
                     <div class="boxLabel">
-                        <label>Nombre</label>
+                        <label for="txtName">Nombre</label>
                     </div>
                     <div class="boxInput">
-                        <input type="text" size="30" />
+                        <input type="text" id="txtName" name="txtName" size="30" />
                     </div><br/>
 
                     <div class="boxLabel">
-                        <label>Apellido Paterno</label>
+                        <label for="txtFirstNameP">Apellido Paterno</label>
                     </div>
                     <div class="boxInput">
-                        <input type="text" size="30" />
+                        <input type="text" id="txtFirstNameP" name="txtFirstNameP" size="30" />
                     </div><br/>
 
                     <div class="boxLabel">
-                        <label>Apellido Materno</label>
+                        <label for="txtFirstNameM">Apellido Materno</label>
                     </div>
                     <div class="boxInput">
-                        <input type="text" size="30" />
+                        <input type="text" id="txtFirstNameM" name="txtFirstNameM" size="30" />
                     </div><br/>
 
                     <div class="boxLabel">
-                        <label>Email</label>
+                        <label for="txtEmail">Email</label>
                     </div>
                     <div class="boxInput">
-                        <input type="text" size="30" />
+                        <input type="text" id="txtEmail" name="txtEmail" size="30" />
                     </div><br/>
 
                     <div class="boxLabel">
-                        <label>Usuario</label>
+                        <label for="txtUsername">Usuario</label>
                     </div>
                     <div class="boxInput">
-                        <input type="text" size="30" />
+                        <input type="text" id="txtUsername" name="txtUsername" size="30" />
                     </div><br/>
 
                     <div class="boxLabel">
-                        <label>Contraseña</label>
+                        <label for="txtPassword">Contraseña</label>
                     </div>
                     <div class="boxInput">
-                        <input type="text" size="30" />
+                        <input type="text" id="txtPassword" name="txtPassword" size="30" />
                     </div><br/>
 
                     <div class="boxLabel">
-                        <label>Pregunta Secreta</label>
+                        <label for="cmbSecretQuestion">Pregunta Secreta</label>
                     </div>
                     <div class="boxInput">
-                        <select>
+                        <select id="cmbSecretQuestion" name="cmbSecretQuestion">
                                 <option value="-1">Seleccione..</option>
-                            <c:forEach items="${preguntasSecretas}" var="preguntaSecreta">
-                                <option value="${preguntaSecreta.id}">${preguntaSecreta.preguntaSecreta}</option>
+                            <c:forEach items="${secretQuestions}" var="secretQuestion">
+                                <option value="${secretQuestion.id}">${secretQuestion.preguntaSecreta}</option>
                             </c:forEach>
                         </select>
                     </div><br/>
 
                     <div class="boxLabel">
-                        <label>Respuesta Secreta</label>
+                        <label for="txtSecretAnswer">Respuesta Secreta</label>
                     </div>
                     <div class="boxInput">
-                        <input type="text" size="30" />
+                        <input type="text" id="txtSecretAnswer" name="txtSecretAnswer" size="30" />
                     </div><br/>
 
                     <div class="boxLabel">
-                        <label>País</label>
+                        <label for="cmbCountry">País</label>
                     </div>
                     <div class="boxInput">
-                        <select id="cmbPais" name="cmbPais">
+                        <select id="cmbCountry" name="cmbCountry">
                                 <option value="-1">Seleccione..</option>
-                            <c:forEach items="${paises}" var="pais">
-                                <option value="${pais.id}">${pais.pais}</option>
+                            <c:forEach items="${countries}" var="country">
+                                <option value="${country.id}">${country.pais}</option>
                             </c:forEach>
                         </select>
                     </div><br/>
 
                     <div class="boxLabel">
-                        <label>Estado</label>
+                        <label for="cmbState">Estado</label>
                     </div>
                     <div class="boxInput">
-                        <select id="cmbEstado" name="cmbEstado">
+                        <select id="cmbState" name="cmbState">
                             <option value="-1">Seleccione..</option>
                         </select>
                     </div><br/>
 
                     <div class="boxLabel">
-                        <label>Municipio</label>
+                        <label for="cmbTown">Municipio</label>
                     </div>
                     <div class="boxInput">
-                        <select id="cmbMunicipio" name="cmbMunicipio">
+                        <select id="cmbTown" name="cmbTown">
                             <option value="-1">Seleccione..</option>
                         </select>
                     </div><br/>
 
-                    <button id="submitUsuario">Guardar</button>
+                    <button id="submitUser" name="submitUser">Guardar</button>
                 </div>
             </form>
         </div>

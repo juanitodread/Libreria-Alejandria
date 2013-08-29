@@ -43,7 +43,7 @@ function Util() {}
  */
 Util.loadSelectWithAjax = function(idSelect, selectedKey, data, properties) {
     var defaultText  = "Seleccione..";
-    var defaultValue = 0;
+    var defaultValue = -1;
     var select = document.getElementById(idSelect);
     
     if(selectedKey <= 0) {

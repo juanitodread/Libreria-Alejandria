@@ -53,8 +53,8 @@ public class AjaxQueryController {
     
     @RequestMapping(value = "/loadStatesFromCountry", method = RequestMethod.GET)
     public @ResponseBody
-    List<Estado> loadStatesFromCountry(@RequestParam Long idPais) {
-        List<Estado> estados = estadoDao.getEstadosByPais(idPais);
+    List<Estado> loadStatesFromCountry(@RequestParam Long idCountry) {
+        List<Estado> estados = estadoDao.getEstadosByPais(idCountry);
         return estados;
     }
 
