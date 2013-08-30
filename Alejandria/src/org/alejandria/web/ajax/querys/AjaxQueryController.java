@@ -1,9 +1,29 @@
+/**
+ * Librería Alejandría
+ * 
+ * Copyright 2013 juanitodread
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * 
+ */
 package org.alejandria.web.ajax.querys;
 
 import org.alejandria.model.dao.EstadoDao;
 import org.alejandria.model.dao.MunicipioDao;
+import org.alejandria.model.dao.UsuarioDao;
 import org.alejandria.model.entity.Estado;
 import org.alejandria.model.entity.Municipio;
+import org.alejandria.model.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,50 +34,43 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA. 
- * User: Juan 
- * Date: 2/11/12 Time: 10:17 
- * PM To change this template use File | Settings | File Templates.
- */
+*
+*
+* @author juanitodread
+* @version 1.0
+* Aug 26, 2013
+*/
 @Controller
+@RequestMapping("/ajax")
 public class AjaxQueryController {
 
     @Autowired
     private EstadoDao    estadoDao;
     @Autowired
     private MunicipioDao municipioDao;
-
-    @RequestMapping(value = "/ajaxQueryLoadStatesFromCountry", method = RequestMethod.GET)
+    @Autowired
+    private UsuarioDao usuarioDao;
+    
+    @RequestMapping(value = "/loadStatesFromCountry", method = RequestMethod.GET)
     public @ResponseBody
-    String loadStatesFromCountry(@RequestParam Long idPais) {
-        List<Estado> estados = estadoDao.getEstadosByPais(idPais);
-        StringBuilder sb = new StringBuilder("{\"options\":[");
-        for (Estado est : estados) {
-            sb.append("{\"key\" : ");
-            sb.append(est.getId());
-            sb.append(", \"value\" : \"");
-            sb.append(est.getEstado());
-            sb.append("\"}");
-        }
-        sb.append("]}");
-        return sb.toString();
+    List<Estado> loadStatesFromCountry(@RequestParam Long idCountry) {
+        List<Estado> estados = estadoDao.getEstadosByPais(idCountry);
+        return estados;
     }
 
-    @RequestMapping(value = "/ajaxQueryLoadSCitiesFromState", method = RequestMethod.GET)
+    @RequestMapping(value = "/loadCitiesFromState", method = RequestMethod.GET)
     public @ResponseBody
-    String loadSCitiesFromState(@RequestParam Long idState) {
+    List<Municipio> loadSCitiesFromState(@RequestParam Long idState) {
         List<Municipio> municipios = municipioDao
                 .getMunicipiosByEstado(idState);
-        StringBuilder sb = new StringBuilder("{\"options\":[");
-        for (Municipio mun : municipios) {
-            sb.append("{\"key\" : ");
-            sb.append(mun.getId());
-            sb.append(", \"value\" : \"");
-            sb.append(mun.getMunicipio());
-            sb.append("\"}");
-        }
-        sb.append("]}");
-        return sb.toString();
+        return municipios;
+    }
+    
+    @RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Usuario> getAllUsers() {
+        List<Usuario> usuarios = usuarioDao.getAllUsuarios();
+        return usuarios;
     }
 
 }

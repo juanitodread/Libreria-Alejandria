@@ -1,6 +1,10 @@
 package org.alejandria.model.entity;
 
 import javax.persistence.*;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -41,7 +45,9 @@ public class Usuario implements Serializable, Comparable<Usuario> {
     @ManyToOne
     @JoinColumn(name = "idMunicipio", nullable = false)
     private Municipio municipio;
-    //private PreguntaSecreta preguntaSecreta;
+    @ManyToOne
+    @JoinColumn(name = "idPreguntaSecreta", nullable = false)
+    private PreguntaSecreta preguntaSecreta;
     @Column(name = "activo", insertable = false)
     private Boolean activo;
     @Column(name = "fechaCreacion", insertable = false, updatable = false)
@@ -149,6 +155,10 @@ public class Usuario implements Serializable, Comparable<Usuario> {
         this.municipio = municipio;
     }
 
+    public void setPreguntaSecreta(PreguntaSecreta preguntaSecreta) {
+        this.preguntaSecreta = preguntaSecreta;
+    }
+
     public Boolean getActivo() {
         return activo;
     }
@@ -173,6 +183,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
         this.fechaActualizacion = fechaActualizacion;
     }
 
+    @JsonIgnore
     public Usuario getUsuarioCreacion() {
         return usuarioCreacion;
     }
@@ -181,6 +192,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
         this.usuarioCreacion = usuarioCreacion;
     }
 
+    @JsonIgnore
     public Usuario getUsuarioActualizacion() {
         return usuarioActualizacion;
     }

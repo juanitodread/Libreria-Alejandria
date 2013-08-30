@@ -7,7 +7,7 @@
  */
 
 $(function () {
-    $("#submitUsuario").button({
+    $("#submitUser").button({
         icons:{
             primary:"ui-icon-check"
         }
@@ -16,24 +16,49 @@ $(function () {
     loadInit();
 });
 
-function loadSelectWithSource(id, param, data){
-    var html = '<option value="-1">Seleccione..</option>';
-    if(param != null && parseInt(param, 10) > 0){
-        var src = data(param);
-        for(var i = 0; i < src.options.length; i++){
-            html += '<option value="' + src.options[i].key + '">' + src.options[i].value + '</option>';
-        }
-    }
-    $('#' + id).html(html);
-}
-
 function loadInit(){
-   $('#cmbPais').change(function(){
-       loadSelectWithSource('cmbEstado', $('#cmbPais').val(), loadStatesFromCountry);
+   $('#cmbCountry').change(function() {
+       loadStatesFromCountry('cmbState', $('#cmbCountry').val(), {key: "id", value: "estado"});
    });
 
-    $('#cmbEstado').change(function(){
-        loadSelectWithSource('cmbMunicipio', $('#cmbEstado').val(), loadCitiesFromState);
+    $('#cmbState').change(function(){
+	loadCitiesFromState('cmbTown', $('#cmbState').val(), {key: "id", value: "municipio"});
     });
+    
+    //load user's grid
+    $('#userGrid').jqGrid({
+	autowidth: true,
+	url: '/alejandria/ajax/getAllUsers.htm',
+	datatype: 'json',
+	mtype: 'GET',
+	colNames: ['Usuario', 'Apellido Paterno', 'Apellido Materno', 'Email', 'Username'],
+	colModel: [{name: 'nombre', width: '20%'}, 
+	           {name: 'aPaterno', width: '20%'},
+	           {name: 'aMaterno', width: '20%'},
+	           {name: 'email', width: '20%'},
+	           {name: 'user', width: '20%'}],
+	pager: '#pager',
+	rowNum: 10,
+	rowList: [10, 20, 30],
+	sortname: '',
+	sortorder: 'desc',
+	viewrecords: true,
+	gridview: true,
+	autoenconde: true
+    });
+    
+    $('#userForm').validate({
+	rules: {
+	    txtName: {
+		required: true,
+		maxLength: 100
+	    },
+	    txtEmail: {
+		required: true, 
+		email: true
+	    }
+	}
+    });
+    
 }
 

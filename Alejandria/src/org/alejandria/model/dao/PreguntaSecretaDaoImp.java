@@ -1,16 +1,17 @@
 package org.alejandria.model.dao;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.alejandria.model.entity.PreguntaSecreta;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.List;
-
 /**
  * Created with IntelliJ IDEA.
- * User: Juan
+ * User: juanitodread
  * Date: 2/11/12
  * Time: 09:09 PM
  * To change this template use File | Settings | File Templates.
@@ -38,7 +39,7 @@ public class PreguntaSecretaDaoImp implements PreguntaSecretaDao {
 
     @Override
     public PreguntaSecreta getPreguntaSecretaByIdProxy(Long id) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return em.getReference(PreguntaSecreta.class, id);
     }
 
     @Override

@@ -25,7 +25,7 @@
     <div>
         <h1 id="logo" >
             <span class=""><fmt:message key="org.alejandria.web.common.bookstore" bundle="${label}"/></span>
-            <span class="blue">✱</span>
+            <span class="blue">★</span>
             <span class="gray"><fmt:message key="org.alejandria.web.common.name" bundle="${label}"/></span>
         </h1>
         <h2 id="slogan">

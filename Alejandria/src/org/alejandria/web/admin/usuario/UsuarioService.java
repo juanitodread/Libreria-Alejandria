@@ -1,9 +1,12 @@
 package org.alejandria.web.admin.usuario;
 
+import org.alejandria.model.dao.MunicipioDao;
 import org.alejandria.model.dao.PaisDao;
 import org.alejandria.model.dao.PreguntaSecretaDao;
+import org.alejandria.model.dao.UsuarioDao;
 import org.alejandria.model.entity.Pais;
 import org.alejandria.model.entity.PreguntaSecreta;
+import org.alejandria.model.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +25,22 @@ public class UsuarioService {
     private PreguntaSecretaDao preguntaSecretaDao;
     @Autowired
     private PaisDao paisDao;
+    @Autowired
+    private MunicipioDao municipioDao;
+    @Autowired
+    private UsuarioDao userDao;
+    
+    public void saveUser(Usuario user, long idSecretQuestion,
+                         long idTown) {
+        user.setMunicipio(municipioDao.getMunicipioByIdProxy(idTown));
+        user.setPreguntaSecreta(preguntaSecretaDao.getPreguntaSecretaByIdProxy(idSecretQuestion));
+        
+        Usuario userSession = userDao.getUsuarioByIdProxy(1l);
+        user.setUsuarioCreacion(userSession);
+        user.setUsuarioActualizacion(userSession);
+        
+        userDao.insert(user);
+    }
 
     public List<PreguntaSecreta> getAllPreguntasSecretas(){
         return preguntaSecretaDao.getAllPreguntasSecretas();

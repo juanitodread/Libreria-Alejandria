@@ -8,8 +8,8 @@
 
 $(function () {
     $("#submitUsuario").button({
-        icons:{
-            primary:"ui-icon-check"
+        icons: {
+            primary: "ui-icon-check"
         }
     });
 });

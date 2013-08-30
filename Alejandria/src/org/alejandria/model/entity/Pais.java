@@ -1,6 +1,9 @@
 package org.alejandria.model.entity;
 
 import javax.persistence.*;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -90,6 +93,7 @@ public class Pais implements Serializable, Comparable<Pais>{
         this.fechaActualizacion = fechaActualizacion;
     }
 
+    @JsonIgnore
     public Usuario getUsuarioCreacion() {
         return usuarioCreacion;
     }
@@ -98,6 +102,7 @@ public class Pais implements Serializable, Comparable<Pais>{
         this.usuarioCreacion = usuarioCreacion;
     }
 
+    @JsonIgnore
     public Usuario getUsuarioActualizacion() {
         return usuarioActualizacion;
     }

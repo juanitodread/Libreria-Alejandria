@@ -9,9 +9,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
- * User: @juanitodread
- * Date: 4/10/12
- * Time: 9:26 PM
+ * User: @juanitodread Date: 4/10/12 Time: 9:26 PM
  */
 @Repository
 public class UsuarioDaoImp implements UsuarioDao {
@@ -26,7 +24,8 @@ public class UsuarioDaoImp implements UsuarioDao {
     @Override
     @Transactional(readOnly = true)
     public List<Usuario> getAllUsuarios() {
-        return em.createQuery("select u from Usuario u order by u.nombre").getResultList();
+        return em.createQuery("select u from Usuario u order by u.nombre")
+                .getResultList();
     }
 
     @Override
@@ -44,7 +43,11 @@ public class UsuarioDaoImp implements UsuarioDao {
     @Override
     @Transactional(readOnly = true)
     public List<Usuario> findUsuarios(String name) {
-        return em.createQuery(String.format("select u from Usuario u where upper(u.nombre) like ('%%%1$s%%') or upper(u.aPaterno) like('%%%1$s%%') or upper(u.aMaterno) like('%%%1$s%%') or upper(u.user) like('%%%1$s%%') order by u.nombre", name.toUpperCase())).getResultList();
+        return em
+                .createQuery(
+                        String.format(
+                                "select u from Usuario u where upper(u.nombre) like ('%%%1$s%%') or upper(u.aPaterno) like('%%%1$s%%') or upper(u.aMaterno) like('%%%1$s%%') or upper(u.user) like('%%%1$s%%') order by u.nombre",
+                                name.toUpperCase())).getResultList();
     }
 
     @Override
