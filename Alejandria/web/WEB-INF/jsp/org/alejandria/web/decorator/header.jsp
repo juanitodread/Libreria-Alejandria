@@ -14,10 +14,6 @@
 	String extraCompany =  request.getParameter("ec") != null ? request.getParameter("ec").toString() : "";
 %>
 
-<% 
-	String extraCompany =  request.getParameter("ec") != null ? request.getParameter("ec").toString() : "";
-%>
-
 <!-- fmt:setLocale value="es"/-->
 <fmt:setBundle basename="org.alejandria.web.i18n.text.label" var="label" />
 
@@ -29,7 +25,7 @@
     </div>
     <c:out value="${role}" />
     <sec:authorize access="hasRole('ADMIN')">
-    <button id="iconConfig" class="sesionButton"><fmt:message key="org.alejandria.web.header.configuration" bundle="${label}"/></button>
+    <button id="iconConfig" class="sesionButton"onclick="location.href='<c:url value="/admin/user.htm" />'" ><fmt:message key="org.alejandria.web.header.configuration" bundle="${label}"/></button>
     </sec:authorize>
     <button id="iconClose" class="sesionButton" onclick="location.href='<c:url value="/j_spring_security_logout" />'" ><fmt:message key="org.alejandria.web.header.close-session" bundle="${label}"/></button>
 </div>
