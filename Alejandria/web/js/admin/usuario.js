@@ -31,7 +31,7 @@ function loadInit(){
 	url: '/alejandria/ajax/getAllUsers.htm',
 	datatype: 'json',
 	mtype: 'GET',
-	colNames: ['Usuario', 'Apellido Paterno', 'Apellido Materno', 'Email', 'Username'],
+	colNames: ['First Name', 'Last Name', 'Maiden Name', 'Email', 'Username'],
 	colModel: [{name: 'nombre', width: '20%'}, 
 	           {name: 'aPaterno', width: '20%'},
 	           {name: 'aMaterno', width: '20%'},
@@ -51,14 +51,49 @@ function loadInit(){
 	rules: {
 	    txtName: {
 		required: true,
-		maxLength: 100
+		maxlength: 100
+	    },
+	    txtFirstNameP: {
+		required: true,
+		maxlength: 100
+	    },
+	    txtFirstNameM: {
+		required: false, 
+		maxlength: 100
 	    },
 	    txtEmail: {
 		required: true, 
 		email: true
+	    },
+	    txtUsername: {
+		required: true,
+		maxlength: 50
+	    },
+	    txtPassword: {
+		required: true,
+		maxlength: 50
+	    },
+	    cmbSecretQuestion: {
+		rquiredcmb: true
+	    },
+	    txtSecretAnswer: {
+		required: true,
+		maxlength: 100
+	    },
+	    cmbCountry: {
+		rquiredcmb: true
+	    },
+	    cmbState: {
+		rquiredcmb: true
+	    },
+	    cmbTown: {
+		rquiredcmb: true
 	    }
 	}
     });
     
+    jQuery.validator.addMethod("rquiredcmb", function(value){
+	return (value > 0);
+    }, "This field is required.");
 }
 

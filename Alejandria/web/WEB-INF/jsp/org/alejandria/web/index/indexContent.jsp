@@ -50,7 +50,7 @@
     <div>
     	<h1><fmt:message key="org.alejandria.web.content.index.body.book.title" bundle="${label}"/></h1>
     	<p>
-    		<a href="#"><img src="images/book.jpg" width="100" height="120" alt="" class="float-left" /></a> 
+    		<img src="images/book.jpg" id="imgMonthBook" width="100" height="120" alt="" class="float-left" onmouseover="${omoScript}" />
     		Un enemigo invisible plaga nuestro mundo. Los seres humanos se han convertido en huéspedes de una especie invasora que se adueña de sus mentes, dejando intactos sus cuerpos para que continúen con vidas aparentemente normales. La raza humana ha sucumbido casi por completo.
 			La captura de Melanie, una de las pocas personas que permanece en "estado salvaje", parece ser el fin.
 			Wanderer, el alma invasora en el cuerpo de Melanie, recibió toda clase de advertencias sobre lo que implica habitar un cuerpo humano: las emociones abrumadoras, la exhuberancia de los sentidos, la persistencia de los recuerdos. Sólo existe un problema inesperado: un huésped que se rehúsa desalojar su antiguo cuerpo y perder el control de su mente.
@@ -63,10 +63,11 @@
 	    <form>
 	        <p>
 	            <label><fmt:message key="org.alejandria.web.content.index.body.writeUs.name" bundle="${label}"/></label>
-	            <input name="dname" value="Your Name" type="text" size="30" />
+	            <input name="dname" value="Your Name" type="text" size="30" /><br/>
 	            <label><fmt:message key="org.alejandria.web.content.index.body.writeUs.email" bundle="${label}"/></label>
-	            <input name="demail" value="Your Email" type="text" size="30" />
-	            <label><fmt:message key="org.alejandria.web.content.index.body.writeUs.yourComments" bundle="${label}"/></label>
+	            <input name="demail" value="Your Email" type="text" size="30" /><br/>
+	            <label><fmt:message key="org.alejandria.web.content.index.body.writeUs.yourComments" bundle="${label}"/></label><br/>
+	            <span id="commentMsg"><c:out value="${commentMsg}" escapeXml="false"></c:out></span>
 	            <textarea rows="2" cols="2"></textarea>
 	            <br />
 	            <input class="button" type="submit" value="<fmt:message key="org.alejandria.web.common.content.submit" bundle="${label}"/>"/>	            

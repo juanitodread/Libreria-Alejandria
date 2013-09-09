@@ -1,6 +1,9 @@
 package org.alejandria.web.admin.usuario;
 
 import org.alejandria.model.entity.Usuario;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/user")
 public class UsuarioController{
+    
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private UsuarioService service;
@@ -43,14 +48,15 @@ public class UsuarioController{
                                  @RequestParam String txtSecretAnswer, 
                                  @RequestParam long cmbTown, 
                                  ModelAndView mv) {
+        log.info("Creating User...");
         Usuario user = new Usuario();
-        user.setNombre(txtName);
-        user.setaPaterno(txtFirstNameP);
-        user.setaMaterno(txtFirstNameM);
-        user.setEmail(txtEmail);
-        user.setUser(txtUsername);
-        user.setPassword(txtPassword);
-        user.setRespuestaSecreta(txtSecretAnswer);
+        user.setNombre(StringEscapeUtils.escapeHtml4(txtName));
+        user.setaPaterno(StringEscapeUtils.escapeHtml4(txtFirstNameP));
+        user.setaMaterno(StringEscapeUtils.escapeHtml4(txtFirstNameM));
+        user.setEmail(StringEscapeUtils.escapeHtml4(txtEmail));
+        user.setUser(StringEscapeUtils.escapeHtml4(txtUsername));
+        user.setPassword(StringEscapeUtils.escapeHtml4(txtPassword));
+        user.setRespuestaSecreta(StringEscapeUtils.escapeHtml4(txtSecretAnswer));
         
         service.saveUser(user, cmbSecretQuestion, cmbTown);
         

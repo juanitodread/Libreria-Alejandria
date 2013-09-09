@@ -65,7 +65,7 @@
     <security-constraint>
 	    <web-resource-collection>
 	        <web-resource-name>UsersAdministration</web-resource-name>
-	        <url-pattern>/usuario.htm</url-pattern>
+	        <url-pattern>/user.htm</url-pattern>
 	    </web-resource-collection>
 	    <user-data-constraint>
 	        <transport-guarantee>CONFIDENTIAL</transport-guarantee>

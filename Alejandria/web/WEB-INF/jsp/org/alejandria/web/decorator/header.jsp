@@ -9,6 +9,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<% 
+	String extraCompany =  request.getParameter("ec") != null ? request.getParameter("ec").toString() : "";
+%>
+
 <!-- fmt:setLocale value="es"/-->
 <fmt:setBundle basename="org.alejandria.web.i18n.text.label" var="label" />
 
@@ -27,6 +31,10 @@
             <span class=""><fmt:message key="org.alejandria.web.common.bookstore" bundle="${label}"/></span>
             <span class="blue">★</span>
             <span class="gray"><fmt:message key="org.alejandria.web.common.name" bundle="${label}"/></span>
+            <span class="gray"> <%=extraCompany %></span>
+            <!-- <span class="gray"> ${param.ec}</span> -->
+            <!-- <span class="gray"> <c:out value="${param.ec}"></c:out></span>-->
+           
         </h1>
         <h2 id="slogan">
             <span class="gray"><fmt:message key="org.alejandria.web.common.slogan" bundle="${label}"/></span>
