@@ -16,10 +16,10 @@
 <div align="right" class="sesion">
     <div class="sesionButton inline">
         <span class="ui-icon ui-icon-person" style="display:inline-block;"></span>
-        <a href="#" id="iconSesion" title="Perfil de..">{username}</a>
+        <a href="#" id="iconSesion" title="Perfil de.."><c:out value="${username}"/></a>
     </div>
     <button id="iconConfig" class="sesionButton"><fmt:message key="org.alejandria.web.header.configuration" bundle="${label}"/></button>
-    <button id="iconClose" class="sesionButton"><fmt:message key="org.alejandria.web.header.close-session" bundle="${label}"/></button>
+    <button id="iconClose" class="sesionButton" onclick="location.href='<c:url value="/j_spring_security_logout" />'" ><fmt:message key="org.alejandria.web.header.close-session" bundle="${label}"/></button>
 </div>
 <div>
     <div>

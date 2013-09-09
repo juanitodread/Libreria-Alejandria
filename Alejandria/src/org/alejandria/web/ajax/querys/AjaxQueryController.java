@@ -24,6 +24,10 @@ import org.alejandria.model.dao.UsuarioDao;
 import org.alejandria.model.entity.Estado;
 import org.alejandria.model.entity.Municipio;
 import org.alejandria.model.entity.Usuario;
+import org.alejandria.web.view.JQueryGridPage;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +35,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -68,9 +73,15 @@ public class AjaxQueryController {
     
     @RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
     public @ResponseBody
-    List<Usuario> getAllUsers() {
-        List<Usuario> usuarios = usuarioDao.getAllUsuarios();
-        return usuarios;
+    JQueryGridPage<Usuario> getAllUsers(@RequestParam int page, @RequestParam int rows) {
+        System.out.println(page + " - " + rows);
+        int countRows = usuarioDao.getUsersCount();
+        final int startIdx = (page - 1) * rows;
+        final int endIdx = Math.min(startIdx + rows, countRows);
+        int totalPages = (int) (rows < countRows ? Math.ceil(1.0 * countRows / rows) : page);
+        
+        List<Usuario> usuarios = usuarioDao.getSetOfUsers(startIdx, endIdx);
+        return new JQueryGridPage<Usuario>(page, countRows, totalPages, usuarios);
     }
 
 }

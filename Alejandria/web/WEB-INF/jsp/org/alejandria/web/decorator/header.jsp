@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!-- fmt:setLocale value="es"/-->
 <fmt:setBundle basename="org.alejandria.web.i18n.text.label" var="label" />
@@ -16,10 +17,13 @@
 <div align="right" class="sesion">
     <div class="sesionButton inline">
         <span class="ui-icon ui-icon-person" style="display:inline-block;"></span>
-        <a href="#" id="iconSesion" title="Perfil de..">{username}</a>
+        <a href="#" id="iconSesion" title="Perfil de.."><c:out value="${username}"/></a>
     </div>
+    <c:out value="${role}" />
+    <sec:authorize access="hasRole('ADMIN')">
     <button id="iconConfig" class="sesionButton"><fmt:message key="org.alejandria.web.header.configuration" bundle="${label}"/></button>
-    <button id="iconClose" class="sesionButton"><fmt:message key="org.alejandria.web.header.close-session" bundle="${label}"/></button>
+    </sec:authorize>
+    <button id="iconClose" class="sesionButton" onclick="location.href='<c:url value="/j_spring_security_logout" />'" ><fmt:message key="org.alejandria.web.header.close-session" bundle="${label}"/></button>
 </div>
 <div>
     <div>

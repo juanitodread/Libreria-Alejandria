@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import java.util.List;
 
 /**
@@ -23,12 +24,14 @@ public class EstadoDaoImp implements EstadoDao{
         this.em = em;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     @Transactional(readOnly = true)
     public List<Estado> getAllEstados() {
         return em.createQuery("Select e from Estado e order by e.estado").getResultList();
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<Estado> getEstadosByPais(Long idPais) {
         return em.createQuery(String.format("select e from Estado e where e.pais.id = %d", idPais)).getResultList();
@@ -46,6 +49,7 @@ public class EstadoDaoImp implements EstadoDao{
         return em.getReference(Estado.class, id);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     @Transactional(readOnly = true)
     public List<Estado> findEstados(String name) {
