@@ -26,7 +26,8 @@ public class IndexController{
     @RequestMapping("/index")
     public ModelAndView getIndexView(ModelAndView mv){
         mv.setViewName("org/alejandria/web/index/index");
-        mv.addObject("PAISES", service.getPaises());
+        mv.addObject("omoScript",service.getScript());
+        mv.addObject("commentMsg",service.getMessage());
         return mv;
     }
 }

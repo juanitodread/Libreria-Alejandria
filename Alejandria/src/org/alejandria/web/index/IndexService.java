@@ -1,15 +1,9 @@
 package org.alejandria.web.index;
 
-import org.alejandria.model.dao.PaisDao;
-import org.alejandria.model.dao.UsuarioDao;
-import org.alejandria.model.entity.Pais;
-import org.alejandria.model.entity.Usuario;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * User: @juanitodread
@@ -19,47 +13,32 @@ import java.util.List;
 @Component
 public class IndexService {
 
-    @Autowired
-    private PaisDao paisDao;
-    @Autowired
-    private UsuarioDao usuarioDao;
-    
     private final Logger log = LoggerFactory.getLogger(this.getClass());
-
-    public void setDao(PaisDao paisDao){
-       this.paisDao = paisDao;
+    
+    public String getScript(){
+        String script = null;
+        try{
+            //method to get the script (sql, file properties, Web service)
+            script = "javascript: function src(){ var obj = document.getElementById('imgMonthBook'); obj.style.height = '220px'; obj.style.width = '200px'; } src();";
+            //script = "javascript: alert('My Malicious Code is in your site');";
+        }catch(Exception e){
+            //printException
+        }
+        return script;
+        //return StringEscapeUtils.escapeEcmaScript(script);
     }
     
-    public void setUsuarioDao(UsuarioDao usuarioDao){
-       this.usuarioDao = usuarioDao; 
+    public String getMessage(){
+        String message = null;
+        try{
+            //method to get the message (sql, file properties, Web service)
+            message = "To write <strong>Bold Type</strong> write code between < strong >< /strong > tags.";
+            //message = "<script>alert('My Malicious Code is in your site');</script>";
+        }catch(Exception e){
+            //printException
+        }
+        return message;
+        //return StringEscapeUtils.escapeXml(message);
     }
-    
-    public void deletePais(Pais p){
-        paisDao.delete(p);
-    }
-    
-    public void updatePais(Pais p){
-        paisDao.update(p);
-    }
-    
-    public void savePais(Pais p){
-        Usuario usr = usuarioDao.getUsuarioById(1L);
-        p.setUsuarioCreacion(usr);
-        p.setUsuarioActualizacion(usr);
-        paisDao.insert(p);
-    }
-
-    public List<Pais> findPaises(String name){
-        return paisDao.findPaises(name);
-    }
-    
-    public Pais getPaisById(Long id){
-        return paisDao.getPaisById(id);
-    }
-    
-    public List<Pais> getPaises(){
-        log.info("get paises..");
-        return paisDao.getAllPaises();
-    }
-
+   
 }
