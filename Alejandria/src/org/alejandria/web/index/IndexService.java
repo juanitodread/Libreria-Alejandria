@@ -1,10 +1,13 @@
 package org.alejandria.web.index;
 
+<<<<<<< HEAD
 import org.alejandria.model.dao.PaisDao;
 import org.alejandria.model.dao.UsuarioDao;
+=======
+import org.apache.commons.lang3.StringEscapeUtils;
+>>>>>>> master
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,11 +18,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class IndexService {
 
-    @Autowired
-    private PaisDao paisDao;
-    @Autowired
-    private UsuarioDao usuarioDao;
-    
     private final Logger log = LoggerFactory.getLogger(this.getClass());
     
     public String getScript(){
@@ -47,4 +45,8 @@ public class IndexService {
         return message;
         //return StringEscapeUtils.escapeXml(message);
     }
+<<<<<<< HEAD
+=======
+   
+>>>>>>> master
 }

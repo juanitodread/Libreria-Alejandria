@@ -7,9 +7,12 @@ import org.alejandria.model.dao.UsuarioDao;
 import org.alejandria.model.entity.Pais;
 import org.alejandria.model.entity.PreguntaSecreta;
 import org.alejandria.model.entity.Usuario;
+<<<<<<< HEAD
 import org.alejandria.security.crypto.CryptoUtil;
 import org.alejandria.util.Util;
 import org.alejandria.util.encodecs.Base64;
+=======
+>>>>>>> master
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +36,16 @@ public class UsuarioService {
     @Autowired
     private MunicipioDao       municipioDao;
     @Autowired
+<<<<<<< HEAD
     private UsuarioDao         userDao;
 
     public void saveUser(Usuario user, long idSecretQuestion, long idTown, String admin) {       
+=======
+    private UsuarioDao userDao;
+    
+    public void saveUser(Usuario user, long idSecretQuestion,
+                         long idTown) {        
+>>>>>>> master
         log.info("INFO: Saving User...");       
         user.setMunicipio(municipioDao.getMunicipioByIdProxy(idTown));
         user.setPreguntaSecreta(preguntaSecretaDao
