@@ -23,4 +23,4 @@ org.codehaus.jackson:jackson-mapper-asl:1.9.5
 org.springframewor.securityk:spring-security-config:3.0.2.RELEASE
 org.springframewor.security:spring-security-web:3.0.2.RELEASE
 org.springframewor.security:spring-security-taglibs:3.0.2.RELEASE
-org.apache.commons:commons-lang3:3.1
+org.apache.commons:commons-lang3:3.1 
