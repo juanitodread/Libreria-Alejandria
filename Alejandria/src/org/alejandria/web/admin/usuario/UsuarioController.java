@@ -2,8 +2,6 @@ package org.alejandria.web.admin.usuario;
 
 import org.alejandria.model.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,18 +17,14 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-@RequestMapping("/admin/user")
-public class UsuarioController {
+@RequestMapping("/user")
+public class UsuarioController{
 
     @Autowired
     private UsuarioService service;
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getUsuarioView(ModelAndView mv){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        mv.addObject("username", auth.getName());
-        
-        
         mv.setViewName("org/alejandria/web/admin/usuario/usuario");
         mv.addObject("secretQuestions", service.getAllPreguntasSecretas());
         mv.addObject("countries", service.getAllPaises());
@@ -58,8 +52,7 @@ public class UsuarioController {
         user.setPassword(txtPassword);
         user.setRespuestaSecreta(txtSecretAnswer);
         
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        service.saveUser(user, cmbSecretQuestion, cmbTown, auth.getName());
+        service.saveUser(user, cmbSecretQuestion, cmbTown);
         
         return getUsuarioView(mv);
     }

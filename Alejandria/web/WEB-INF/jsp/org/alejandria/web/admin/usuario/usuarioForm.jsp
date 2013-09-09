@@ -7,11 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script type="text/javascript" charset="UTF-8" src="<c:url value="/js/admin/usuario.js"/>" ></script>
+<script type="text/javascript" charset="UTF-8" src="<c:out value="${pageContext.request.contextPath}"/>/js/admin/usuario.js" ></script>
     <div id="main-admin">
         <div>
             <h1>Administrar Usuarios</h1>
-            <form name="userForm" id="userForm" autocomplete="off" action="<c:url value="/admin/user/saveUser.htm"/>" method="post">
+            <form name="userForm" id="userForm" autocomplete="off" action="<c:out value="${pageContext.request.contextPath}"/>/user/saveUser.htm" method="post">
                 <div class="margin">
                     <div class="boxLabel">
                         <label for="txtName">Nombre</label>

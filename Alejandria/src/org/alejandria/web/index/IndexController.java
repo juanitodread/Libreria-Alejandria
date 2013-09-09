@@ -2,8 +2,6 @@ package org.alejandria.web.index;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,11 +24,7 @@ public class IndexController{
     }
 
     @RequestMapping("/index")
-    public ModelAndView getIndexView(ModelAndView mv) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = "anonymousUser".equals(auth.getName()) ? "" : auth.getName();
-        mv.addObject("username", username);
-        
+    public ModelAndView getIndexView(ModelAndView mv){
         mv.setViewName("org/alejandria/web/index/index");
         mv.addObject("PAISES", service.getPaises());
         return mv;

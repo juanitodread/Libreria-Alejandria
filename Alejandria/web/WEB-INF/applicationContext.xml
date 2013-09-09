@@ -57,14 +57,11 @@
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
           p:entityManagerFactory-ref="entityManagerFactory"/>
-          
-    <bean id="applicationContextProvider" class="org.alejandria.util.ApplicationContextProvider" />          
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!-- Scans the classpath of this application for @Components to deploy as beans -->
     <context:component-scan base-package="org.alejandria.model.dao" />
     <context:component-scan base-package="org.alejandria.web" />
-    <context:component-scan base-package="org.alejandria.security.auth" />
 
 </beans>

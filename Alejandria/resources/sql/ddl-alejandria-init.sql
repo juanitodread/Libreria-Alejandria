@@ -10,7 +10,6 @@ create table Usuario(
   email				varchar(100)						not null,
   usuario			varchar(50)						not null,
   pass				varchar(50)						not null,
-  salt              varchar(50)                     not null,
   avatar			bytea							null,
   respuestaSecreta		varchar(100)						not null,
   fechaInicioSesion		timestamp						null,

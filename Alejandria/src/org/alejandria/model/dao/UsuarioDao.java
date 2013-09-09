@@ -15,8 +15,6 @@ public interface UsuarioDao {
 
     public Usuario getUsuarioById(Long id);
     
-    public Usuario getUsuarioByUsername(String username);
-    
     public Usuario getUsuarioByIdProxy(Long id);
 
     public List<Usuario> findUsuarios(String name);
@@ -26,11 +24,5 @@ public interface UsuarioDao {
     public void update(Usuario usuario);
 
     public void delete(Usuario usuario);
-
-    public List<Usuario> getSetOfUsers(int start, int maxRows);
-
-    public int getUsersCount();
-    
-    public boolean authenticateUser(String username, String password);
 
 }
