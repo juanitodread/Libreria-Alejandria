@@ -19,7 +19,7 @@
 package org.alejandria.util;
 
 /**
- * This is a utility class for Alejandría:
+ * This is a utility class for AlejandrÃ­a.
  *
  * @author juanitodread
  * @version $
