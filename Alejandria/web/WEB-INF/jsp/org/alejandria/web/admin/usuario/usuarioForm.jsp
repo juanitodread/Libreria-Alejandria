@@ -12,19 +12,11 @@
 <!-- fmt:setLocale value="es"/-->
 <fmt:setBundle basename="org.alejandria.web.i18n.text.label" var="label" />
 
-<<<<<<< HEAD
 <script type="text/javascript" charset="UTF-8" src="<c:url value="/js/admin/usuario.js"/>" ></script>
     <div id="main-admin">
         <div>
             <h1><fmt:message key="org.alejandria.web.admin.content.user.title" bundle="${label}"/></h1>
             <form name="userForm" id="userForm" autocomplete="off" action="<c:url value="/admin/user/saveUser.htm"/>" method="post">
-=======
-<script type="text/javascript" charset="UTF-8" src="<c:out value="${pageContext.request.contextPath}"/>/js/admin/usuario.js" ></script>
-    <div id="main-admin">
-        <div>
-            <h1><fmt:message key="org.alejandria.web.admin.content.user.title" bundle="${label}"/></h1>
-            <form name="userForm" id="userForm" autocomplete="off" action="<c:out value="${pageContext.request.contextPath}"/>/user/saveUser.htm" method="post">
->>>>>>> master
                 <div class="margin">
                     <div class="boxLabel">
                         <label for="txtName"><fmt:message key="org.alejandria.web.admin.content.user.form.name" bundle="${label}"/></label>

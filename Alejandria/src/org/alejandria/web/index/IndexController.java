@@ -32,13 +32,10 @@ public class IndexController{
         mv.addObject("username", username);
         
         mv.setViewName("org/alejandria/web/index/index");
-<<<<<<< HEAD
+        
         mv.addObject("omoScript", service.getScript());
         mv.addObject("commentMsg", service.getMessage());
-=======
-        mv.addObject("omoScript",service.getScript());
-        mv.addObject("commentMsg",service.getMessage());
->>>>>>> master
+
         return mv;
     }
 }
