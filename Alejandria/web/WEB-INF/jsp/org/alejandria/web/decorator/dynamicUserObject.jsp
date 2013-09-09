@@ -20,12 +20,18 @@
 <body>
     <h1><span class="ui-icon ui-icon-person" style="display:inline-block;"></span><fmt:message key="org.alejandria.web.rightBar.signIn.title" bundle="${label}"/></h1>
     <div class="margin">
-        <form class="searchform" action="">
+        <form class="searchform" autocomplete="off" method="post" action="<c:url value="j_spring_security_check" />" >
             <label><fmt:message key="org.alejandria.web.rightBar.signIn.user" bundle="${label}"/></label>
-            <input type="text" size="15">
+            <input type="text" name="j_username" size="15">
             <label><fmt:message key="org.alejandria.web.rightBar.signIn.password" bundle="${label}"/></label>
-            <input type="text" size="15"><br/>
-            <a href="#"><fmt:message key="org.alejandria.web.rightBar.signIn.accept" bundle="${label}"/></a> <br/>
+            <input type="password" name="j_password" size="15"><br/>
+            <c:if test="${not empty param.authError}">
+                <div class="errorblock" style="color: red;">
+                    Your login attempt was not successful, try again.<br /> Caused :
+                    ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+                </div>
+            </c:if>
+            <button id="submitUser" name="submitUser"><fmt:message key="org.alejandria.web.rightBar.signIn.accept" bundle="${label}"/></button><br/>
             <a href="#"><fmt:message key="org.alejandria.web.rightBar.signIn.forgottenPassword" bundle="${label}"/></a><br/>
             <a href="#"><fmt:message key="org.alejandria.web.rightBar.signIn.createAccount" bundle="${label}"/></a>
         </form>

@@ -1,12 +1,22 @@
 package org.alejandria.model.entity;
 
-import javax.persistence.*;
-
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
 import java.io.Serializable;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  * User: @juanitodread
@@ -35,6 +45,8 @@ public class Usuario implements Serializable, Comparable<Usuario> {
     private String user;
     @Column(name = "pass")
     private String password;
+    @Column(name = "salt")
+    private String salt;
     @Column(name = "avatar")
     private byte[] avatar;
     @Column(name = "respuestaSecreta")
@@ -121,6 +133,14 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
     public byte[] getAvatar() {
@@ -217,6 +237,6 @@ public class Usuario implements Serializable, Comparable<Usuario> {
         if(null == obj || !(obj instanceof Usuario)){
             return false;
         }
-        return ((Usuario) obj).getId() == this.id;
+        return ((Usuario) obj).getId().equals(this.id);
     }
 }

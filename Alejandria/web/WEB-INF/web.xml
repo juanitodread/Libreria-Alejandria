@@ -7,7 +7,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/applicationContext.xml</param-value>
+        <param-value>/WEB-INF/applicationContext.xml /WEB-INF/applicationContext-security.xml</param-value>
     </context-param>
 
     <listener>
@@ -62,10 +62,28 @@
         <url-pattern>*.htm</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>localizationFilter</filter-name>
+        <filter-class>org.springframework.web.filter.RequestContextFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>localizationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <security-constraint>
 	    <web-resource-collection>
 	        <web-resource-name>UsersAdministration</web-resource-name>
-	        <url-pattern>/usuario.htm</url-pattern>
+	        <url-pattern>/user.htm</url-pattern>
 	    </web-resource-collection>
 	    <user-data-constraint>
 	        <transport-guarantee>CONFIDENTIAL</transport-guarantee>

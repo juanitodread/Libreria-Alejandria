@@ -1,6 +1,17 @@
 package org.alejandria.model.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
+import javax.persistence.Temporal;
+import javax.persistence.GenerationType;
+import javax.persistence.TemporalType;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.FetchType;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 

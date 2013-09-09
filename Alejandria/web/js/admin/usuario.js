@@ -31,7 +31,7 @@ function loadInit(){
 	url: '/alejandria/ajax/getAllUsers.htm',
 	datatype: 'json',
 	mtype: 'GET',
-	colNames: ['Usuario', 'Apellido Paterno', 'Apellido Materno', 'Email', 'Username'],
+	colNames: ['First Name', 'Last Name', 'Maiden Name', 'Email', 'Username'],
 	colModel: [{name: 'nombre', width: '20%'}, 
 	           {name: 'aPaterno', width: '20%'},
 	           {name: 'aMaterno', width: '20%'},
@@ -47,18 +47,76 @@ function loadInit(){
 	autoenconde: true
     });
     
+    $.extend($.jgrid.defaults, {
+	  datatype: 'json',
+	  jsonReader : {
+	    repeatitems:false,
+	    total: function(result) {
+	      //Total number of pages
+	      return Math.ceil(result.total / result.max);
+	    },
+	    records: function(result) {
+	      //Total number of records
+	      return result.total;
+	    }
+	  },
+	  prmNames: {rows: 'max', search: null},
+	  height: 'auto',
+	  viewrecords: true,
+	  rowList: [10, 20, 50, 100],
+	  altRows: true,
+	  loadError: function(xhr, status, error) {
+	    alert(error);
+	  }
+	  });
+    
     $('#userForm').validate({
 	rules: {
 	    txtName: {
 		required: true,
-		maxLength: 100
+		maxlength: 100
+	    },
+	    txtFirstNameP: {
+		required: true,
+		maxlength: 100
+	    },
+	    txtFirstNameM: {
+		required: false, 
+		maxlength: 100
 	    },
 	    txtEmail: {
 		required: true, 
 		email: true
+	    },
+	    txtUsername: {
+		required: true,
+		maxlength: 50
+	    },
+	    txtPassword: {
+		required: true,
+		maxlength: 50
+	    },
+	    cmbSecretQuestion: {
+		rquiredcmb: true
+	    },
+	    txtSecretAnswer: {
+		required: true,
+		maxlength: 100
+	    },
+	    cmbCountry: {
+		rquiredcmb: true
+	    },
+	    cmbState: {
+		rquiredcmb: true
+	    },
+	    cmbTown: {
+		rquiredcmb: true
 	    }
 	}
     });
     
+    jQuery.validator.addMethod("rquiredcmb", function(value){
+	return (value > 0);
+    }, "This field is required.");
 }
 
