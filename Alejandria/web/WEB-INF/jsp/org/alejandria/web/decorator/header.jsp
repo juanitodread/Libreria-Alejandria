@@ -14,10 +14,6 @@
 	String extraCompany =  request.getParameter("ec") != null ? request.getParameter("ec").toString() : "";
 %>
 
-<% 
-	String extraCompany =  request.getParameter("ec") != null ? request.getParameter("ec").toString() : "";
-%>
-
 <!-- fmt:setLocale value="es"/-->
 <fmt:setBundle basename="org.alejandria.web.i18n.text.label" var="label" />
 
